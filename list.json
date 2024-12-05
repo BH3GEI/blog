@@ -88,5 +88,10 @@
         "title": "WebAssembly Learning Notes(WebAssemblyLearning笔记)",
         "time": "2024-07-10",
         "file": "posts/wasm.md"
+    },
+    {
+        "title": "Set V2ray server",
+        "time": "2024-12-06",
+        "file": "posts/setupV2.md"
     }
 ]
