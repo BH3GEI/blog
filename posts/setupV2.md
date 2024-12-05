@@ -38,7 +38,7 @@ Insert the following configuration (make sure to replace the UUID with your own)
     "settings": {
       "clients": [
         {
-          "id": "f47ac10b-58cc-4372-a567-0e02b2c3d479",
+          "id": "f47ac10b-6546-4372-5684-6465415684",
           "alterId": 0,
           "security": "aes-128-gcm"
         }
