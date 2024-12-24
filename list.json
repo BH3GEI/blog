@@ -93,5 +93,10 @@
         "title": "Set Up V2ray server",
         "time": "2024-12-06",
         "file": "posts/setupV2.md"
+    },
+    {
+        "title": "Setting Up Ubuntu Container with GUI Support",
+        "time": "2024-12-25",
+        "file": "posts/podman.md"
     }
 ]
