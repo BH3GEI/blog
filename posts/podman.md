@@ -56,10 +56,15 @@ chmod +x cursor.AppImage
 
 On host:
 ```
-# Create launch script
 cat > $HOME/start-windsurf.sh << 'EOF'
 #!/bin/bash
-podman exec -i my-ubuntu bash -c "nohup windsurf --no-sandbox --user-data-dir=/root/windsurf-data >/dev/null 2>&1 &"
+xhost +local:
+
+podman exec \
+    -e DISPLAY=$DISPLAY \
+    -e XAUTHORITY=/root/.Xauthority \
+    my-ubuntu \
+    windsurf --no-sandbox --user-data-dir=/root/windsurf-data
 EOF
 
 chmod +x $HOME/start-windsurf.sh
