@@ -351,29 +351,25 @@ async function bloghandle(request) {
 						<img src="${owner_logo}" style="max-width: 220px;width: 100%;border-radius: 50%;">
 						<h3>${owner_name}</h3>
 						<p class="text-CENTER">${owner_desc}
-						<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=298 height=52 src="//music.163.com/outchain/player?type=2&id=27090060&auto=1&height=32"></iframe>
 						</p>
 						<hr>
 						<div class="text-left">
 							<h4>Homepage</h4>						
 							<p><a href="https://bh3gei.github.io" target="_blank">🏠 Visit!</a></p>
 
+							<h4>Projects</h4>						
+							<p><a href="https://bh3gei.github.io/ProjectPage/" target="_blank">🗺️ Play!</a></p>
 
 							<h4>GitHub</h4>						
-							<p><a href="https://github.com/BH3GEI/" target="_blank">💼 Code!</a></p>					
-                            
-                            <h4>163 Music</h4>						
-							<p><a href="https://music.163.com/#/user/home?id=6336499362" target="_blank">🎧 Listen! </a></p>		
-                            
-                            <h4>Spotify</h4>						
-							<p><a href="https://open.spotify.com/user/dixonhill-?si=35067335daa44ff3" target="_blank">🎵 Listen! </a></p>		
-                            
-                            <h4>Telegram</h4>			
-							<p><a href="https://t.me/yao_luv_cs" target="_blank">✈️ Chat!</a></p>		
-							
-                            <h4>Web Proxy</h4>						
-							<p><a href="https://stratoproxy.stratosphericus.workers.dev" target="_blank">🧱 Surf!</a></p>
-							
+							<p><a href="https://github.com/BH3GEI/" target="_blank">⌨️ Code!</a></p>
+
+							<h4>LinkedIn</h4>						
+							<p><a href="https://linkedin.com/in/yao-li2026" target="_blank">💼 Connect!</a></p>
+
+							<h4>All Links</h4>						
+							<p><a href="https://bh3gei.github.io/AllLinks/" target="_blank">🔗 Visit!</a></p>
+
+				
 						</div>
 					</div>
 				</div>
