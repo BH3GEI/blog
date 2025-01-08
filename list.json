@@ -98,5 +98,10 @@
         "title": "Setting Up Ubuntu Container with GUI Support",
         "time": "2024-12-25",
         "file": "posts/podman.md"
+    },
+    {
+        "title": "Basic Node Package Manager Commands",
+        "time": "2024-12-25",
+        "file": "posts/npm_cmds.md"
     }
 ]
