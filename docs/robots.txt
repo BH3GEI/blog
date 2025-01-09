@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://bh3gei.github.io/blog/sitemap.xml 

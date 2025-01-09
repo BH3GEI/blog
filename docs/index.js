@@ -41,8 +41,11 @@ async function init() {
     }
     
     // 添加 decodeURIComponent 来处理 URL 中的特殊字符
-    const path = decodeURIComponent(window.location.pathname.replace('/blog/', ''));
-    if (path === '' || path === '/') {
+    const path = decodeURIComponent(window.location.pathname)
+        .replace(/^\/blog\//, '')  // Remove leading /blog/
+        .replace(/\/$/, '');       // Remove trailing slash
+    
+    if (path === '') {
         renderHome(posts);
     } else {
         renderPost(posts, path);
@@ -90,11 +93,9 @@ function renderHome(posts) {
 }
 
 async function renderPost(posts, path) {
-    // 解码路径确保正确匹配
-    const decodedPath = decodeURIComponent(path);
     const post = posts.find(p => {
         const postPath = p.file.replace(/^posts\//i, "").replace(/\.md$/i, "");
-        return postPath === decodedPath;
+        return postPath === path;
     });
     
     if (!post) {
