@@ -3,6 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        // 处理从404.html重定向过来的请求
+        (function(){
+            var redirect = sessionStorage.redirect;
+            delete sessionStorage.redirect;
+            if (redirect && redirect != location.href) {
+                history.replaceState(null, null, redirect);
+            }
+        })();
+    </script>
     <!-- SEO Meta Tags -->
     <meta name="description" content="BH3GEI's personal blog about programming, technology and more">
     <meta name="keywords" content="BH3GEI, blog, programming, technology, developer">

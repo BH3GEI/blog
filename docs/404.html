@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Redirecting...</title>
+    <script>
+        // 保存当前路径
+        sessionStorage.redirect = location.href;
+        // 重定向到主页
+        location.replace(location.pathname.split('/blog/')[0] + '/blog/');
+    </script>
+</head>
+<body>
+    Redirecting...
+</body>
+</html> 
