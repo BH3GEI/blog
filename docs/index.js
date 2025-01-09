@@ -1,5 +1,5 @@
 // 定义 Github 项目，文章会从这里读取
-const github_base = "BH3GEI/blog/";
+const github_base = "BH3GEI/blog";
 
 // 设置站点信息
 const default_title = "BH3GEI's Blog";
@@ -93,19 +93,27 @@ function renderHome(posts) {
 }
 
 async function renderPost(posts, path) {
+    // 解码路径用于比较
+    const decodedPath = decodeURIComponent(path);
     const post = posts.find(p => {
         const postPath = p.file.replace(/^posts\//i, "").replace(/\.md$/i, "");
-        return postPath === path;
+        return postPath === decodedPath;
     });
     
     if (!post) {
+        console.error('Post not found for path:', path);
         render404();
         return;
     }
     
-    // 获取文章内容时不需要额外编码，因为 GitHub 的 raw URL 会自动处理
+    // 修正 GitHub raw URL 的构建方式
     const url = `https://raw.githubusercontent.com/${github_base}/main/${post.file}`;
     const response = await fetch(url);
+    if (!response.ok) {
+        console.error('Failed to fetch post content:', response.status, response.statusText);
+        render404();
+        return;
+    }
     const content = await response.text();
     
     // 渲染文章
