@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+    <title>BH3GEI's Blog</title>
+    <description>BH3GEI's personal blog about programming, technology and more</description>
+    <link>https://bh3gei.github.io/blog</link>
+    <atom:link href="https://bh3gei.github.io/blog/rss.xml" rel="self" type="application/rss+xml" />
+    <language>zh-CN</language>
+    <lastBuildDate>Mon, 01 Jan 2024 00:00:00 GMT</lastBuildDate>
+    <!-- RSS items will be dynamically generated -->
+</channel>
+</rss> 
