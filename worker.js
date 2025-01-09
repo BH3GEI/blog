@@ -16,37 +16,14 @@ var owner_logo = "https://avatars.githubusercontent.com/u/58540850?v=4"	// 博�
 var owner_desc = "          BH3GEIのブログへようこそ！";					// 博主简介
 
 // 设置站点资源文件地址
-var css_bootstrap	 = "https://cdn.zerodream.net/css/bootstrap.min.css";		// Boostrap css 文件地址
-var css_hljs_github   = "https://cdn.zerodream.net/css/highlight.js/github.css";  	// Highlight js css 地址
-var js_jquery		 = "https://cdn.zerodream.net/js/jquery.min.js";		// JQuery 地址
-var js_bootstrap	= "https://cdn.zerodream.net/js/bootstrap.min.js";		// Bootstrap 地址
-var js_instantclick   = "https://cdn.zerodream.net/js/instantclick.min.js";		// InstantClick 地址
-var js_showdown	 = "https://cdn.zerodream.net/js/showdown.min.js";			// Showdown 地址
-var js_showdown_table = "https://cdn.zerodream.net/js/showdown-table.min.js";		// Showdown table 地址
-var js_highlight	= "https://cdn.zerodream.net/js/highlight.min.js";		// Highlight 地址
-var js_highlight_pack = "https://cdn.zerodream.net/js/highlight.pack.js";		// Highlight pack 地址
-
-// // 设置站点资源文件地址
-// var css_bootstrap	 = "./bootstrap.min.css";		// Boostrap css 文件地址
-// var css_hljs_github   = "./github.css";  	// Highlight js css 地址
-// var js_jquery		 = "./jquery.min.js";		// JQuery 地址
-// var js_bootstrap	= "./bootstrap.min.js";		// Bootstrap 地址
-// var js_instantclick   = "./instantclick.min.js";		// InstantClick 地址
-// var js_showdown	 = "./showdown.min.js";			// Showdown 地址
-// var js_showdown_table = "./showdown-table.min.js";		// Showdown table 地址
-// var js_highlight	= "./highlight.min.js";		// Highlight 地址
-// var js_highlight_pack = "./highlight.pack.js";		// Highlight pack 地址
-
-// // 设置站点资源文件地址
-// var css_bootstrap	 = "./.min.css";		// Boostrap css 文件地址
-// var css_hljs_github   = "./gitub.cs";  	// Highlight js css 地址
-// var js_jquery		 = "./jqury.min.js";		// JQuery 地址
-// var js_bootstrap	= "./bootstra.min.js";		// Bootstrap 地址
-// var js_instantclick   = "./instanclick.min.js";		// InstantClick 地址
-// var js_showdown	 = "./showdownmin.js";			// Showdown 地址
-// var js_showdown_table = "./showdon-table.min.js";		// Showdown table 地址
-// var js_highlight	= "./highlight.mn.js";		// Highlight 地址
-// var js_highlight_pack = "./highght.pack.js";		// Highlight pack 地址
+var css_bootstrap	 = "https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css";		// Boostrap css 文件地址
+var css_hljs_github   = "https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.7.0/build/styles/github.min.css";  	// Highlight js css 地址
+var js_jquery		 = "https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.min.js";		// JQuery 地址
+var js_bootstrap	= "https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js";		// Bootstrap 地址
+var js_instantclick   = "https://cdn.jsdelivr.net/npm/instantclick@3.1.0/instantclick.min.js";		// InstantClick 地址
+var js_showdown	 = "https://cdn.jsdelivr.net/npm/showdown@2.1.0/dist/showdown.min.js";			// Showdown 地址
+var js_highlight	= "https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.7.0/build/highlight.min.js";		// Highlight 地址
+var js_highlight_pack = "https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.7.0/build/highlight.min.js";		// Highlight pack 地址
 
 // 这是一些临时变量，无需修改
 var title = "";
@@ -67,10 +44,18 @@ var header = `<!DOCTYPE HTML>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=11">
-		<meta name="application-name" content="SakuraFrp Blog">
+		<meta name="application-name" content="${default_title}">
 		<meta name="msapplication-TileColor" content="#F1F1F1">
-		<link rel="shortcut icon" href="${site_favicon}" />
+		<meta name="author" content="${owner_name}">
+		<meta name="keywords" content="blog,tech,${owner_name},programming">
 		<meta name="description" content="{description}">
+		<meta property="og:title" content="{title}">
+		<meta property="og:description" content="{description}">
+		<meta property="og:site_name" content="${default_title}">
+		<meta property="og:type" content="website">
+		<meta property="og:url" content="https://${site_domain}{current_path}">
+		<meta property="og:image" content="${owner_logo}">
+		<link rel="shortcut icon" href="${site_favicon}" />
 		<link rel="stylesheet" href="${css_bootstrap}" crossorigin="anonymous">
 		<link rel="stylesheet" href="${css_hljs_github}">
 		<title>{title}</title>
@@ -119,43 +104,27 @@ function getRequestParams(str) {
 }
 
 async function bloghandle(request) {
-	var cookie = {};
-	var clist = undefined;
-	try {
-		cookieText.split(';').forEach(l => {
-			var parts = l.split('=');
-			cookie[parts[0].trim()] = unescape((parts[1] || '').trim());
-		});
-	} catch(e) {
-		// 无可奉告
-	}
-	var $_GET = getRequestParams(request.url);
 	var urls = new URL(request.url);
 	var data = header;
+	
 	if(urls.pathname == "/") {
 		var url = "https://raw.githubusercontent.com/" + github_base + "/main/list.json";
 		const init = {
-		method: "GET"
+			method: "GET"
 		};
 		const response = await fetch(url, init);
 		var resptxt = await response.text();
-		if(cookie['list'] == undefined) {
-			var Days = 30; 
-			var exp = new Date(); 
-			exp.setTime(exp.getTime() + Days*24*60*60*1000); 
-			modifyHeader = {
-				"Set-Cookie" : "list="+ escape (resptxt) + ";expires=" + exp.toGMTString()
-			};
-		}
 		var json = JSON.parse(resptxt);
-		// console.log(json);
-		data += `<p>All Posts</p>
-						`;
+		
+		data += `<p>All Posts</p>`;
+		
 		var before_page = 0;
 		var current_page = 1;
 		var next_page = 2;
 		var pagenow = json.length;
 		var pageval = json.length - 12;
+		
+		var $_GET = getRequestParams(request.url);
 		if($_GET['p'] != undefined && $_GET['p'] != "") {
 			pageval = json.length - (parseInt($_GET['p']) * 12);
 			pagenow = json.length - ((parseInt($_GET['p']) - 1) * 12) - 1;
@@ -163,157 +132,108 @@ async function bloghandle(request) {
 			current_page = parseInt($_GET['p']);
 			before_page = parseInt($_GET['p']) - 1;
 		}
-		console.log(pageval);
+		
 		var update_i = 0;
 		for(var i = pagenow;i >= pageval;i--) {
-		try {
-			var tmpfilename = encodeURIComponent(json[i].file
-			.replace(/"/g, "").replace(/posts\//ig, "").replace(/\.md/ig, ""));
-			var tmptime = json[i].time;
-			var tmptitle = json[i].title;
-			data += `<a href="/${tmpfilename}" class="post-a">
-							<div class="post-box">
-								<h4>${tmptitle}</h4>
-								<p></p>
-							</div>
-						</a>
-						`;
-			update_i++;
-		} catch(e) {
-			// 收声
+			try {
+				var tmpfilename = json[i].file
+					.replace(/^posts\//i, "")
+					.replace(/\.md$/i, "");
+				var tmptime = json[i].time;
+				var tmptitle = json[i].title;
+				data += `<a href="/${encodeURIComponent(tmpfilename)}" class="post-a">
+					<div class="post-box">
+						<h4>${tmptitle}</h4>
+						<p>${tmptime}</p>
+					</div>
+				</a>`;
+				update_i++;
+			} catch(e) {
+				console.error("Error processing post:", e);
+			}
 		}
-		}
-		console.log(update_i);
+		
 		if(update_i == 0) {
-		data += `<p><blockquote>No content yet</blockquote></p>
-				`
+			data += `<p><blockquote>No content yet</blockquote></p>`;
 		}
+		
 		data += `<br>
-						<p class="text-left pageid"> Current at page ${current_page} </p>
-						<p class="text-right">
-							`;
+			<p class="text-left pageid">Current at page ${current_page}</p>
+			<p class="text-right">`;
+		
 		if(current_page > 1) {
-		data += `<a href="/?p=${before_page}"><button class="btn btn-default">Previous Page</button></a>&nbsp; &nbsp;`;
+			data += `<a href="/?p=${before_page}"><button class="btn btn-default">Previous Page</button></a>&nbsp; &nbsp;`;
 		}
 		if(update_i >= 12) {
-		data += `<a href="/?p=${next_page}"><button class="btn btn-default">Next Page</button></a>`;
+			data += `<a href="/?p=${next_page}"><button class="btn btn-default">Next Page</button></a>`;
 		}
-		data += `
-						</p>
-					</div>
-				`;
+		
+		data += `</p></div>`;
+		
 		title = default_title;
-		//intitle = default_intitle;
 		intitle = default_title;
 		title2 = default_title;
-		// title2 = "";
 	} else {
-		var uname = unescape("posts" + urls.pathname + ".md");
-		try {
-		clist = cookie['list'];
-		} catch(e) {
-		var url = "https://raw.githubusercontent.com/" + github_base + "/main/list.json";
-		const init = {
-			method: "GET"
-		};
-		const response = await fetch(url, init);
-		clist = await response.text();
+		// 处理文章页面
+		var uname = decodeURIComponent(urls.pathname).trim();
+		// 移除开头的斜杠
+		uname = uname.replace(/^\/+/, '');
+		// 添加 posts/ 前缀和 .md 后缀，不要移除任何特殊字符
+		uname = "posts/" + uname + ".md";
+		console.log("Normalized article path:", uname);
+		
+		// 直接从 GitHub 获取文章列表
+		const listUrl = "https://raw.githubusercontent.com/" + github_base + "/main/list.json";
+		const listResponse = await fetch(listUrl);
+		const json = await listResponse.json();
+		
+		var found = false;
+		for(const post of json) {
+			// 保持特殊字符的文件名比较
+			const normalizedPostFile = post.file;
+			console.log("Comparing:", normalizedPostFile, "with:", uname);
+			if(normalizedPostFile === uname) {
+				title = post.title;
+				intitle = default_title;
+				title2 = default_title;
+				ctime = post.time;
+				found = true;
+				console.log("Found article:", post.file);
+				break;
+			}
 		}
-		if(clist != undefined) {
+		
+		data += `</div>
+			<p class="text-center{isunknown}"><small></small></p>
+			<textarea id="textdata" style="display: none;">`;
+		
+		if (found) {
+			var url = "https://raw.githubusercontent.com/" + github_base + "/main/" + uname;
+			console.log("Fetching article content from:", url);
+			
 			try {
-				var json = JSON.parse(clist);
-				var found = false;
-				for(var i in json) {
-					tmpfilename = json[i].file.replace(/"/g, "");
-					tmptime = json[i].time;
-					tmptitle = json[i].title;
-					if(tmpfilename == uname) {
-						title = tmptitle;
-						// intitle = tmptitle;
-						intitle = title;
-						title = default_title;
-						intitle = default_title;
-						title2 = default_title;
-						ctime = tmptime;
-						found = true;
-					}
-				}
-				if(!found) {
-					var url = "https://raw.githubusercontent.com/" + github_base + "//list.json";
-					const init = {
-						method: "GET"
-					};
-					const response = await fetch(url, init);
-					clist = await response.text();
-					var json = JSON.parse(clist);
-					for(var i in json) {
-						tmpfilename = json[i].file.replace(/"/g, "");
-						tmptime = json[i].time;
-						tmptitle = json[i].title;
-						if(tmpfilename == uname) {
-							title = tmptitle;
-							intitle = tmptitle;
-							intitle = default_title;
-							title = default_title;
-							title2 = default_title;
-							ctime = tmptime;
-						}
-					}
-					var Days = 30; 
-					var exp = new Date(); 
-					exp.setTime(exp.getTime() + Days*24*60*60*1000); 
-					modifyHeader = {
-						"Set-Cookie" : "list="+ escape (clist) + ";expires=" + exp.toGMTString()
-					};
+				const response = await fetch(url);
+				if(response.status == 200) {
+					var resptxt = await response.text();
+					// 在文章内容外包装一个 div，避免与页面结构冲突
+					data += `<div class="markdown-body">
+${resptxt.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")}
+</div>`;
+					description = resptxt.substring(0, 128).replace(/"/ig, "").replace(/\n/g, " ");
+					console.log("Successfully fetched article content");
+					data += `</textarea><hr>`;
+				} else {
+					console.error("Failed to fetch article content, status:", response.status);
+					throw new Error("Failed to fetch article content");
 				}
 			} catch(e) {
-				// 收声
+				console.error("Error fetching article:", e);
+				found = false;
 			}
-		} else {
-			var url = "https://raw.githubusercontent.com/" + github_base + "/main/list.json";
-			const init = {
-				method: "GET"
-			};
-			const response = await fetch(url, init);
-			var clist = await response.text();
-			var json = JSON.parse(clist);
-			for(var i in json) {
-				tmpfilename = json[i].file.replace(/"/g, "");
-				tmptime = json[i].time;
-				tmptitle = json[i].title;
-				if(tmpfilename == uname) {
-					title = tmptitle;
-					intitle = tmptitle;
-					intitle = default_title;
-					title = default_title;
-					title2 = default_title;
-					ctime = tmptime;
-				}
-			}
-			var Days = 30; 
-			var exp = new Date(); 
-			exp.setTime(exp.getTime() + Days*24*60*60*1000); 
-			modifyHeader = {
-				"Set-Cookie" : "list="+ escape (clist) + ";expires=" + exp.toGMTString()
-			};
 		}
-		data += `</div>
-						<p class="text-center{isunknown}"><small></small></p>
-						<textarea id="textdata" style="display: none;">`;
-		var url = "https://raw.githubusercontent.com/" + github_base + "/main/posts" + urls.pathname + ".md";
-		const init = {
-			method: "GET"
-		};
-		const response = await fetch(url, init);
-		if(response.status == 200) {
-			var resptxt = await response.text();
-			data += resptxt.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
-			description = resptxt.substring(0, 128).replace(/"/ig, "").replace(/\n/g, " ");
-			data += `</textarea>
-					<hr>
-					
-				`;
-		} else {
+		
+		if (!found) {
+			console.error("Article not found or failed to fetch");
 			data += `### 404 Not Found
 
 <div class="error-message">
@@ -332,18 +252,14 @@ async function bloghandle(request) {
         <a href="/" class="btn">Back to ${default_intitle} Homepage</a>
     </div>
 </div>
-					</textarea>
-				`;
+			</textarea>`;
+			
 			title = '404 - Page Not Found';
-			// title2 = ` - ${default_title}`;
 			title2 = ``;
-			intitle = ``;
-			title = default_title;
 			intitle = ``;
 			description = ``;
 			isunknown = " hidden";
 		}
-		title2 = `${default_title}`;
 	}
 	data += `</div>
 				<div class="col-sm-3">
@@ -386,43 +302,110 @@ async function bloghandle(request) {
 		<script src="${js_bootstrap}" crossorigin="anonymous"></script>
 		<script src="${js_instantclick}" data-no-instant></script>
 		<script src="${js_showdown}" type="text/javascript"></script>
-		<script src="${js_showdown_table}" type="text/javascript"></script>
 		<script src="${js_highlight}"></script>
 		<script src="${js_highlight_pack}"></script>
-		<script src="https://comments.zerodream.net/comments.js?s=2"></script>
 		<script type="text/javascript">
-			var init = {
-			site: "${site_domain}",
-			cid: "posts${urls.pathname}.md"
-			};
-			hljs.initHighlightingOnLoad();
-			var md = new showdown.Converter({extensions: ['table']});
-			md.setOption('simplifiedAutoLink', true);
-			md.setOption('simpleLineBreaks', true);
-			md.setOption('openLinksInNewWindow', true);
-			md.setOption('noHeaderId', true);
-			window.onload = function() {
-				try {
-					$(".thread").html(md.makeHtml($("#textdata").val()));
-					document.querySelectorAll('pre code').forEach(function(e) {
-						hljs.highlightBlock(e);
-					});
-					CommentsInit(comments, init);
-				} catch(e) {}
-			}
-		</script>
-		<script data-no-instant>
-			InstantClick.init();
-			InstantClick.on('change', function() {
-				try {
-					$(".thread").html(md.makeHtml($("#textdata").val()));
-					document.querySelectorAll('pre code').forEach(function(e) {
-						hljs.highlightBlock(e);
-					});
-					CommentsInit(comments, init);
-				} catch(e) {}
+			// 使用新的 highlight.js API
+			document.addEventListener('DOMContentLoaded', (event) => {
+				hljs.highlightAll();
 			});
+
+			// 初始化 showdown，使用更完整的配置
+			var md = new showdown.Converter({
+				tables: true,
+				simplifiedAutoLink: true,
+				simpleLineBreaks: true,
+				openLinksInNewWindow: true,
+				noHeaderId: false,  // 启用标题ID
+				parseImgDimensions: true,
+				strikethrough: true,
+				tasklists: true,
+				smoothLivePreview: true,
+				prefixHeaderId: 'section-',  // 添加标题ID前缀，避免冲突
+				ghCompatibleHeaderId: true,  // 使用GitHub兼容的标题ID
+				ghMentions: false,
+				encodeEmails: true,
+				emoji: true
+			});
+
+			function processMarkdown() {
+				try {
+					const content = $("#textdata").val();
+					if (!content) return;
+					
+					// 处理文章内容
+					$(".markdown-body").html(md.makeHtml(content));
+					
+					// 处理代码高亮
+					document.querySelectorAll('pre code').forEach(function(e) {
+						hljs.highlightElement(e);
+					});
+				} catch(e) {
+					console.error('Error processing markdown:', e);
+				}
+			}
+
+			// 页面加载完成时处理
+			window.onload = processMarkdown;
+
+			// InstantClick 切换页面时处理
+			InstantClick.on('change', processMarkdown);
 		</script>
+		<style>
+			/* Markdown 样式 */
+			.markdown-body {
+				padding: 20px;
+				line-height: 1.6;
+				word-wrap: break-word;
+			}
+			
+			.markdown-body h1,
+			.markdown-body h2,
+			.markdown-body h3,
+			.markdown-body h4,
+			.markdown-body h5,
+			.markdown-body h6 {
+				margin-top: 24px;
+				margin-bottom: 16px;
+				font-weight: 600;
+				line-height: 1.25;
+			}
+			
+			.markdown-body h1 {
+				padding-bottom: 0.3em;
+				font-size: 2em;
+				border-bottom: 1px solid #eaecef;
+			}
+			
+			.markdown-body h2 {
+				padding-bottom: 0.3em;
+				font-size: 1.5em;
+				border-bottom: 1px solid #eaecef;
+			}
+			
+			.markdown-body p {
+				margin-top: 0;
+				margin-bottom: 16px;
+			}
+			
+			.markdown-body code {
+				padding: 0.2em 0.4em;
+				margin: 0;
+				font-size: 85%;
+				background-color: rgba(27,31,35,0.05);
+				border-radius: 3px;
+			}
+			
+			.markdown-body pre > code {
+				padding: 16px;
+				overflow: auto;
+				font-size: 85%;
+				line-height: 1.45;
+				background-color: #f6f8fa;
+				border-radius: 3px;
+				display: block;
+			}
+		</style>
 	</body>
 </html>
 	`;
@@ -430,7 +413,8 @@ async function bloghandle(request) {
 		.replace(/\{intitle\}/ig, intitle)
 		.replace(/\{title\_2\}/ig, title2)
 		.replace(/\{isunknown\}/ig, isunknown)
-		.replace(/\{description\}/ig, description);
+		.replace(/\{description\}/ig, description)
+		.replace(/\{current_path\}/ig, urls.pathname);
 	return data;
 }
 
@@ -444,12 +428,61 @@ async function handleRequest(request) {
 		rhttps.headers.set("Location", request.url.replace("http://", "https://"));
 		return rhttps;
 	}
+
+	const url = new URL(request.url);
+	
+	// Handle robots.txt
+	if(url.pathname == "/robots.txt") {
+		return new Response(`User-agent: *
+Allow: /
+Sitemap: https://${site_domain}/sitemap.xml`, {
+			headers: {
+				"content-type": "text/plain"
+			}
+		});
+	}
+	
+	// Handle sitemap.xml
+	if(url.pathname == "/sitemap.xml") {
+		const listUrl = "https://raw.githubusercontent.com/" + github_base + "/main/list.json";
+		const response = await fetch(listUrl);
+		const json = await response.json();
+		
+		let sitemap = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+	<url>
+		<loc>https://${site_domain}/</loc>
+		<changefreq>daily</changefreq>
+		<priority>1.0</priority>
+	</url>`;
+		
+		for(const post of json) {
+			const path = post.file.replace(/posts\//ig, "").replace(/\.md/ig, "");
+			sitemap += `
+	<url>
+		<loc>https://${site_domain}/${encodeURIComponent(path)}</loc>
+		<lastmod>${post.time.split(' ')[0]}</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.8</priority>
+	</url>`;
+		}
+		
+		sitemap += `
+</urlset>`;
+		
+		return new Response(sitemap, {
+			headers: {
+				"content-type": "application/xml"
+			}
+		});
+	}
+
 	cookieText = request.headers.get("cookie");
 	var resp = new Response(await bloghandle(request), {status: 200});
 	resp.headers.set("Content-Type", "text/html");
 	if(modifyHeader != undefined) {
 		for(var index in modifyHeader) {
-		resp.headers.set(index, modifyHeader[index]);
+			resp.headers.set(index, modifyHeader[index]);
 		}
 	}
 	return resp;
