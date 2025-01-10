@@ -6,7 +6,96 @@
     <link>https://bh3gei.github.io/blog</link>
     <atom:link href="https://bh3gei.github.io/blog/rss.xml" rel="self" type="application/rss+xml" />
     <language>zh-CN</language>
-    <lastBuildDate>Mon, 01 Jan 2024 00:00:00 GMT</lastBuildDate>
-    <!-- RSS items will be dynamically generated -->
+    <lastBuildDate>Fri, 10 Jan 2025 04:39:00 GMT</lastBuildDate>
+    <item>
+        <title>Basic Node Package Manager Commands</title>
+        <link>https://bh3gei.github.io/blog/20250108-11</link>
+        <guid isPermaLink="true">https://bh3gei.github.io/blog/20250108-11</guid>
+        <pubDate>Wed, 08 Jan 2025 00:00:00 GMT</pubDate>
+        <description><![CDATA[### 1. 基础命令  ```bash # 初始化项目,创建 package.json npm init  # 快速初始化(使用默认配置) npm init -y  # 安装依赖 npm install   # 简写: npm i npm install package-name  # 安装指定包 npm install package-name@1.0.0  # 安装特定版本  # 卸载依赖 npm uninstall package-name  # 简写: npm un  # 更新依赖 npm update  # 更新所有包 npm update package-name  # 更新指定包 ```  ### 2. 依赖类型  ```bash # 安装生产环境依赖 npm install package-name --save  # 简写: -S # 安装开发环境依赖 npm install package-name --save-dev  # 简写: -D # 全局安装 npm install package-name -g ```  ### 3. 运行脚本  ```bash #...]]></description>
+        <author>BH3GEI</author>
+        <category>Programming</category>
+    </item>
+    <item>
+        <title>Setting Up Ubuntu Container with GUI Support</title>
+        <link>https://bh3gei.github.io/blog/podman</link>
+        <guid isPermaLink="true">https://bh3gei.github.io/blog/podman</guid>
+        <pubDate>Wed, 25 Dec 2024 00:00:00 GMT</pubDate>
+        <description><![CDATA[Setting Up Ubuntu Container with GUI Support  On host: ``` # Create a directory for persistent storage mkdir -p $HOME/ubuntu-data  # Run Ubuntu container with GUI support podman run -it --privileged \   --name my-ubuntu \   -e DISPLAY=$DISPLAY \   -v /tmp/.X11-unix:/tmp/.X11-unix \   -v $HOME/.Xauthority:/root/.Xauthority \   -v $HOME/ubuntu-data:/root \   ubuntu:latest  # Allow container to access X server xhost +local: ```  ``` echo "alias ubuntu='podman exec -it my-ubuntu bash'" >> ~/.bashrc ...]]></description>
+        <author>BH3GEI</author>
+        <category>Programming</category>
+    </item>
+    <item>
+        <title>Set Up V2ray server</title>
+        <link>https://bh3gei.github.io/blog/setupV2</link>
+        <guid isPermaLink="true">https://bh3gei.github.io/blog/setupV2</guid>
+        <pubDate>Fri, 06 Dec 2024 00:00:00 GMT</pubDate>
+        <description><![CDATA[# Set Up V2Ray Server with VMess Protocol  ## Introduction In this tutorial, I'll guide you through setting up a V2Ray server using the VMess protocol with HTTP camouflage. This setup is particularly useful for users who need a reliable and secure proxy solution.  ## Prerequisites - A Linux server (Ubuntu/Debian recommended) - Root access to the server - Basic command line knowledge  ## Step 1: Installing V2Ray First, we need to install V2Ray on your server. The installation process has been upd...]]></description>
+        <author>BH3GEI</author>
+        <category>Programming</category>
+    </item>
+    <item>
+        <title>Kaggle Learning Notes</title>
+        <link>https://bh3gei.github.io/blog/KaggleLearning</link>
+        <guid isPermaLink="true">https://bh3gei.github.io/blog/KaggleLearning</guid>
+        <pubDate>Wed, 10 Jul 2024 00:00:00 GMT</pubDate>
+        <description><![CDATA[# KaggleLearning Personal Notes  ## LMSYS - Chatbot Arena Human Preference Predictions Predict which response users are more likely to prefer in head-to-head matchups between chatbots powered by large language models (LLMs), ensuring that LLM-generated responses align with user preferences.  ### https://www.kaggle.com/code/awsaf49/lmsys-kerasnlp-starter  A very basic and detailed explanation, which I followed step by step.  1. **Environment Setup** (Installing necessary libraries, selecting JAX ...]]></description>
+        <author>BH3GEI</author>
+        <category>Programming</category>
+    </item>
+    <item>
+        <title>WebAssembly Learning Notes</title>
+        <link>https://bh3gei.github.io/blog/wasm</link>
+        <guid isPermaLink="true">https://bh3gei.github.io/blog/wasm</guid>
+        <pubDate>Wed, 10 Jul 2024 00:00:00 GMT</pubDate>
+        <description><![CDATA[# WebAssembly Learning Notes  This is an archive of my learning journey that started a month ago. Due to the intensive learning pace, I needed to organize my thoughts.  [Chinese version follows below]  ## A Brief Introduction  WebAssembly is designed to complement JavaScript for compute-intensive tasks rather than replace it. It's a new open standard binary format that can run anywhere once compiled.  ![image](https://github.com/BH3GEI/WebAssemblyLearning/assets/58540850/c70b0e61-97d1-4a16-94ba-...]]></description>
+        <author>BH3GEI</author>
+        <category>Programming</category>
+    </item>
+    <item>
+        <title>University of Tsukuba Exam Content</title>
+        <link>https://bh3gei.github.io/blog/tsukubatest</link>
+        <guid isPermaLink="true">https://bh3gei.github.io/blog/tsukubatest</guid>
+        <pubDate>Tue, 05 Dec 2023 00:00:00 GMT</pubDate>
+        <description><![CDATA[## University of Tsukuba Entrance Examination Content  ### Analysis Function and its limit, Limit of a sequence, Infinite series, Analysis in one variable, Analysis in several variables (partial derivative, multiple integral).  ### Linear Algebra Matrix, Determinant, Vector space, Linear mapping, Kernel and image, Inner product spaces, Eigenvalues, Eigenvectors, Matrix diagonalization.  ### Discrete Mathematics and Logic Set, Propositional Logic, Function (surjection, injection, image, composite...]]></description>
+        <author>BH3GEI</author>
+        <category>Programming</category>
+    </item>
+    <item>
+        <title>Building a Virtual Machine from Scratch</title>
+        <link>https://bh3gei.github.io/blog/MakeVmMyself</link>
+        <guid isPermaLink="true">https://bh3gei.github.io/blog/MakeVmMyself</guid>
+        <pubDate>Mon, 13 Nov 2023 00:00:00 GMT</pubDate>
+        <description><![CDATA[## Building a Virtual Machine from Scratch  ### Step 1: Theory Learning and Verification #### First Try  ```cpp #include <stdio.h>  // Virtual machine has only one register typedef struct {     int reg; } VM;  void vm_init(VM* vm) {     vm->reg = 0; }  // Single instruction: addition void vm_add(VM* vm, int value) {     vm->reg += value; }  // Print status void vm_print(VM* vm) {     printf("Register: %d\n", vm->reg); }  int main() {     // Create and initialize     VM vm;     vm_init(&vm);     ...]]></description>
+        <author>BH3GEI</author>
+        <category>Programming</category>
+    </item>
+    <item>
+        <title>A Maze Game</title>
+        <link>https://bh3gei.github.io/blog/MazeGame</link>
+        <guid isPermaLink="true">https://bh3gei.github.io/blog/MazeGame</guid>
+        <pubDate>Mon, 13 Nov 2023 00:00:00 GMT</pubDate>
+        <description><![CDATA[# A Simple Yet Potentially Complex Maze Game  This is a toy project that I started on impulse.  It's still in early development, and I'm not sure what it will eventually become.  GitHub link: https://github.com/BH3GEI/MazeGame  ### Step 1: Writing a Simple Test  ```python class Room(object):      def __init__(self, name, description, end_game=False):         self.name = name         self.description = description         self.end_game = end_game         self.paths = {}      def go(self, directio...]]></description>
+        <author>BH3GEI</author>
+        <category>Programming</category>
+    </item>
+    <item>
+        <title>Vue Deployment on Cloudflare and Github Pages</title>
+        <link>https://bh3gei.github.io/blog/VueDeployment</link>
+        <guid isPermaLink="true">https://bh3gei.github.io/blog/VueDeployment</guid>
+        <pubDate>Sun, 05 Nov 2023 00:00:00 GMT</pubDate>
+        <description><![CDATA[### Vue Deployment on GitHub Pages and Cloudflare Workers  ### Deployment on GitHub Pages  1. **First, compile locally after development and upload to git, then configure the repository**      ```bash     $ npm run build     ```  2. **Comment out the dist file in .gitignore**      ```bash     $ git add .     $ git commit -m "test 2"     $ git push origin master     $ git subtree push --prefix dist origin gh-pages     ```  3. **Open the repository settings in GitHub, select Pages configuration, c...]]></description>
+        <author>BH3GEI</author>
+        <category>Programming</category>
+    </item>
+    <item>
+        <title>USTC Hackergame 2023 Writeups</title>
+        <link>https://bh3gei.github.io/blog/Hackergame2023</link>
+        <guid isPermaLink="true">https://bh3gei.github.io/blog/Hackergame2023</guid>
+        <pubDate>Sat, 04 Nov 2023 00:00:00 GMT</pubDate>
+        <description><![CDATA[## 这是个人解题时的一些想法，具体的writeup官方已经公布，请参考  比赛官网：https://hack.lug.ustc.edu.cn/  官方题解：https://github.com/USTC-Hackergame/hackergame2023-writeups  ### 第一题  ![image](https://github.com/BH3GEI/blog/assets/58540850/514b26da-b14a-4780-9183-43cb1765ff4e)  ![image](https://github.com/BH3GEI/blog/assets/58540850/884912eb-5c16-4dc7-9a54-92151dcc43cd)  ![image](https://github.com/BH3GEI/blog/assets/58540850/1c65bc6c-1937-4f90-a4d4-ef271c87d20e)  similarity的值更改为100即可  ### 第二题 ![image_2023-10-31_17-00-41](https://...]]></description>
+        <author>BH3GEI</author>
+        <category>Programming</category>
+    </item>
 </channel>
-</rss> 
+</rss>
