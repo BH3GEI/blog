@@ -64,7 +64,7 @@ function renderHome(posts) {
     // 添加搜索框
     let html = `
         <div class="search-box" style="margin-bottom: 20px;">
-            <input type="text" id="searchInput" class="form-control" placeholder="搜索文章..." style="margin-bottom: 10px;">
+            <input type="text" id="searchInput" class="form-control" placeholder="Search for posts..." style="margin-bottom: 10px;">
         </div>
         <div id="searchResults"></div>
         <p>All Posts</p>
