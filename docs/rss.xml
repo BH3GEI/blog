@@ -6,7 +6,16 @@
     <link>https://bh3gei.github.io/blog</link>
     <atom:link href="https://bh3gei.github.io/blog/rss.xml" rel="self" type="application/rss+xml" />
     <language>zh-CN</language>
-    <lastBuildDate>Fri, 10 Jan 2025 04:39:00 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 10 Jan 2025 04:40:36 GMT</lastBuildDate>
+    <item>
+        <title>2024年终总结</title>
+        <link>https://bh3gei.github.io/blog/20250110_134027</link>
+        <guid isPermaLink="true">https://bh3gei.github.io/blog/20250110_134027</guid>
+        <pubDate>Fri, 10 Jan 2025 00:00:00 GMT</pubDate>
+        <description><![CDATA[# 开始吧...]]></description>
+        <author>BH3GEI</author>
+        <category>Programming</category>
+    </item>
     <item>
         <title>Basic Node Package Manager Commands</title>
         <link>https://bh3gei.github.io/blog/20250108-11</link>
@@ -85,15 +94,6 @@
         <guid isPermaLink="true">https://bh3gei.github.io/blog/VueDeployment</guid>
         <pubDate>Sun, 05 Nov 2023 00:00:00 GMT</pubDate>
         <description><![CDATA[### Vue Deployment on GitHub Pages and Cloudflare Workers  ### Deployment on GitHub Pages  1. **First, compile locally after development and upload to git, then configure the repository**      ```bash     $ npm run build     ```  2. **Comment out the dist file in .gitignore**      ```bash     $ git add .     $ git commit -m "test 2"     $ git push origin master     $ git subtree push --prefix dist origin gh-pages     ```  3. **Open the repository settings in GitHub, select Pages configuration, c...]]></description>
-        <author>BH3GEI</author>
-        <category>Programming</category>
-    </item>
-    <item>
-        <title>USTC Hackergame 2023 Writeups</title>
-        <link>https://bh3gei.github.io/blog/Hackergame2023</link>
-        <guid isPermaLink="true">https://bh3gei.github.io/blog/Hackergame2023</guid>
-        <pubDate>Sat, 04 Nov 2023 00:00:00 GMT</pubDate>
-        <description><![CDATA[## 这是个人解题时的一些想法，具体的writeup官方已经公布，请参考  比赛官网：https://hack.lug.ustc.edu.cn/  官方题解：https://github.com/USTC-Hackergame/hackergame2023-writeups  ### 第一题  ![image](https://github.com/BH3GEI/blog/assets/58540850/514b26da-b14a-4780-9183-43cb1765ff4e)  ![image](https://github.com/BH3GEI/blog/assets/58540850/884912eb-5c16-4dc7-9a54-92151dcc43cd)  ![image](https://github.com/BH3GEI/blog/assets/58540850/1c65bc6c-1937-4f90-a4d4-ef271c87d20e)  similarity的值更改为100即可  ### 第二题 ![image_2023-10-31_17-00-41](https://...]]></description>
         <author>BH3GEI</author>
         <category>Programming</category>
     </item>
