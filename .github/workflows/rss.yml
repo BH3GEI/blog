@@ -1,4 +1,4 @@
-name: Generate RSS Feed
+name: Generate RSS Feed and Sitemap
 
 on:
   push:
@@ -21,7 +21,7 @@ jobs:
         with:
           node-version: '18'
           
-      - name: Create RSS Generator Script
+      - name: Create Generator Script
         run: |
           cat > generate-rss.js << 'EOF'
           const fs = require('fs');
@@ -35,7 +35,7 @@ jobs:
                   // 按日期排序
                   posts.sort((a, b) => new Date(b.time) - new Date(a.time));
                   
-                  // RSS 头部
+                  // 生成 RSS
                   let rss = `<?xml version="1.0" encoding="UTF-8" ?>
           <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
           <channel>
@@ -46,8 +46,18 @@ jobs:
               <language>zh-CN</language>
               <lastBuildDate>${new Date().toUTCString()}</lastBuildDate>`;
                   
+                  // 生成 Sitemap
+                  let sitemap = `<?xml version="1.0" encoding="UTF-8"?>
+          <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+              <url>
+                  <loc>https://bh3gei.github.io/blog/</loc>
+                  <lastmod>${new Date().toISOString().split('T')[0]}</lastmod>
+                  <changefreq>daily</changefreq>
+                  <priority>1.0</priority>
+              </url>`;
+                  
                   // 获取并添加最新的文章
-                  const recentPosts = posts.slice(0, 10);
+                  const recentPosts = posts.slice(0, 10); // RSS只保留最新的10篇
                   for (const post of recentPosts) {
                       try {
                           // 读取文章内容
@@ -59,7 +69,7 @@ jobs:
                           const postPath = post.file.replace(/^posts\//i, "").replace(/\.md$/i, "");
                           const postUrl = `https://bh3gei.github.io/blog/${encodeURIComponent(postPath)}`;
                           
-                          // 添加文章到 RSS
+                          // 添加到 RSS
                           rss += `
               <item>
                   <title>${escapeXML(post.title)}</title>
@@ -75,17 +85,36 @@ jobs:
                       }
                   }
                   
+                  // 为 sitemap 添加所有文章
+                  for (const post of posts) {
+                      const postPath = post.file.replace(/^posts\//i, "").replace(/\.md$/i, "");
+                      const postUrl = `https://bh3gei.github.io/blog/${encodeURIComponent(postPath)}`;
+                      
+                      sitemap += `
+              <url>
+                  <loc>${postUrl}</loc>
+                  <lastmod>${new Date(post.time).toISOString().split('T')[0]}</lastmod>
+                  <changefreq>weekly</changefreq>
+                  <priority>0.8</priority>
+              </url>`;
+                  }
+                  
                   // RSS 尾部
                   rss += `
           </channel>
           </rss>`;
                   
+                  // Sitemap 尾部
+                  sitemap += `
+          </urlset>`;
+                  
                   // 写入文件
                   fs.writeFileSync('docs/rss.xml', rss);
-                  console.log('RSS feed generated successfully!');
+                  fs.writeFileSync('docs/sitemap.xml', sitemap);
+                  console.log('RSS feed and Sitemap generated successfully!');
                   
               } catch (error) {
-                  console.error('Error generating RSS:', error);
+                  console.error('Error generating files:', error);
                   process.exit(1);
               }
           }
@@ -107,10 +136,10 @@ jobs:
       - name: Generate RSS Feed
         run: node generate-rss.js
         
-      - name: Commit and Push RSS Feed
+      - name: Commit and Push Changes
         run: |
           git config --global user.name 'GitHub Actions'
           git config --global user.email 'actions@github.com'
-          git add docs/rss.xml
-          git commit -m "Update RSS feed" || echo "No changes to commit"
+          git add docs/rss.xml docs/sitemap.xml
+          git commit -m "Update RSS feed and Sitemap" || echo "No changes to commit"
           git push 
