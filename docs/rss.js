@@ -23,6 +23,17 @@ async function generateRSS() {
         const recentPosts = posts.slice(0, 10);
         for (const post of recentPosts) {
             try {
+                // 获取文章内容
+                const articleUrl = `https://raw.githubusercontent.com/${github_base}/main/${post.file}`;
+                const articleResponse = await fetch(articleUrl);
+                let content = '';
+                
+                if (articleResponse.ok) {
+                    content = await articleResponse.text();
+                    // 只取文章的前500个字符作为描述
+                    content = content.substring(0, 500) + '...';
+                }
+                
                 // 构建文章链接
                 const postPath = post.file.replace(/^posts\//i, "").replace(/\.md$/i, "");
                 const postUrl = `https://${site_domain}/${encodeURIComponent(postPath)}`;
@@ -34,7 +45,8 @@ async function generateRSS() {
         <link>${postUrl}</link>
         <guid isPermaLink="true">${postUrl}</guid>
         <pubDate>${new Date(post.time).toUTCString()}</pubDate>
-        <description><![CDATA[${post.title}]]></description>
+        <description><![CDATA[${content || post.title}]]></description>
+        <author>BH3GEI</author>
     </item>`;
             } catch (error) {
                 console.error('Error processing post:', post, error);
