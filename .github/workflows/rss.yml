@@ -1,0 +1,116 @@
+name: Generate RSS Feed
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'posts/**'
+      - 'list.json'
+  workflow_dispatch:  # 允许手动触发
+
+jobs:
+  generate-rss:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+          
+      - name: Create RSS Generator Script
+        run: |
+          cat > generate-rss.js << 'EOF'
+          const fs = require('fs');
+          const path = require('path');
+          
+          async function generateRSS() {
+              try {
+                  // 读取文章列表
+                  const posts = JSON.parse(fs.readFileSync('list.json', 'utf8'));
+                  
+                  // 按日期排序
+                  posts.sort((a, b) => new Date(b.time) - new Date(a.time));
+                  
+                  // RSS 头部
+                  let rss = `<?xml version="1.0" encoding="UTF-8" ?>
+          <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+          <channel>
+              <title>BH3GEI's Blog</title>
+              <description>BH3GEI's personal blog about programming, technology and more</description>
+              <link>https://bh3gei.github.io/blog</link>
+              <atom:link href="https://bh3gei.github.io/blog/rss.xml" rel="self" type="application/rss+xml" />
+              <language>zh-CN</language>
+              <lastBuildDate>${new Date().toUTCString()}</lastBuildDate>`;
+                  
+                  // 获取并添加最新的文章
+                  const recentPosts = posts.slice(0, 10);
+                  for (const post of recentPosts) {
+                      try {
+                          // 读取文章内容
+                          const content = fs.readFileSync(post.file, 'utf8');
+                          // 提取文章摘要（前500个字符）
+                          const summary = content.substring(0, 500).replace(/[\n\r]/g, ' ') + '...';
+                          
+                          // 构建文章链接
+                          const postPath = post.file.replace(/^posts\//i, "").replace(/\.md$/i, "");
+                          const postUrl = `https://bh3gei.github.io/blog/${encodeURIComponent(postPath)}`;
+                          
+                          // 添加文章到 RSS
+                          rss += `
+              <item>
+                  <title>${escapeXML(post.title)}</title>
+                  <link>${postUrl}</link>
+                  <guid isPermaLink="true">${postUrl}</guid>
+                  <pubDate>${new Date(post.time).toUTCString()}</pubDate>
+                  <description><![CDATA[${summary}]]></description>
+                  <author>BH3GEI</author>
+                  <category>Programming</category>
+              </item>`;
+                      } catch (error) {
+                          console.error('Error processing post:', post.title, error);
+                      }
+                  }
+                  
+                  // RSS 尾部
+                  rss += `
+          </channel>
+          </rss>`;
+                  
+                  // 写入文件
+                  fs.writeFileSync('docs/rss.xml', rss);
+                  console.log('RSS feed generated successfully!');
+                  
+              } catch (error) {
+                  console.error('Error generating RSS:', error);
+                  process.exit(1);
+              }
+          }
+          
+          // 辅助函数：转义 XML 特殊字符
+          function escapeXML(str) {
+              if (!str) return '';
+              return str
+                  .replace(/&/g, '&amp;')
+                  .replace(/</g, '&lt;')
+                  .replace(/>/g, '&gt;')
+                  .replace(/"/g, '&quot;')
+                  .replace(/'/g, '&apos;');
+          }
+          
+          generateRSS();
+          EOF
+          
+      - name: Generate RSS Feed
+        run: node generate-rss.js
+        
+      - name: Commit and Push RSS Feed
+        run: |
+          git config --global user.name 'GitHub Actions'
+          git config --global user.email 'actions@github.com'
+          git add docs/rss.xml
+          git commit -m "Update RSS feed" || echo "No changes to commit"
+          git push 
