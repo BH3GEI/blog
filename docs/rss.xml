@@ -6,16 +6,7 @@
     <link>https://bh3gei.github.io/blog</link>
     <atom:link href="https://bh3gei.github.io/blog/rss.xml" rel="self" type="application/rss+xml" />
     <language>zh-CN</language>
-    <lastBuildDate>Fri, 10 Jan 2025 05:03:00 GMT</lastBuildDate>
-    <item>
-        <title>测试测试</title>
-        <link>https://bh3gei.github.io/blog/20250111_135634</link>
-        <guid isPermaLink="true">https://bh3gei.github.io/blog/20250111_135634</guid>
-        <pubDate>Sat, 11 Jan 2025 00:00:00 GMT</pubDate>
-        <description><![CDATA[1111 ...]]></description>
-        <author>BH3GEI</author>
-        <category>Programming</category>
-    </item>
+    <lastBuildDate>Fri, 10 Jan 2025 05:04:15 GMT</lastBuildDate>
     <item>
         <title>2024年终总结</title>
         <link>https://bh3gei.github.io/blog/20250110_134027</link>
@@ -94,6 +85,15 @@
         <guid isPermaLink="true">https://bh3gei.github.io/blog/MazeGame</guid>
         <pubDate>Mon, 13 Nov 2023 00:00:00 GMT</pubDate>
         <description><![CDATA[# A Simple Yet Potentially Complex Maze Game  This is a toy project that I started on impulse.  It's still in early development, and I'm not sure what it will eventually become.  GitHub link: https://github.com/BH3GEI/MazeGame  ### Step 1: Writing a Simple Test  ```python class Room(object):      def __init__(self, name, description, end_game=False):         self.name = name         self.description = description         self.end_game = end_game         self.paths = {}      def go(self, directio...]]></description>
+        <author>BH3GEI</author>
+        <category>Programming</category>
+    </item>
+    <item>
+        <title>Vue Deployment on Cloudflare and Github Pages</title>
+        <link>https://bh3gei.github.io/blog/VueDeployment</link>
+        <guid isPermaLink="true">https://bh3gei.github.io/blog/VueDeployment</guid>
+        <pubDate>Sun, 05 Nov 2023 00:00:00 GMT</pubDate>
+        <description><![CDATA[### Vue Deployment on GitHub Pages and Cloudflare Workers  ### Deployment on GitHub Pages  1. **First, compile locally after development and upload to git, then configure the repository**      ```bash     $ npm run build     ```  2. **Comment out the dist file in .gitignore**      ```bash     $ git add .     $ git commit -m "test 2"     $ git push origin master     $ git subtree push --prefix dist origin gh-pages     ```  3. **Open the repository settings in GitHub, select Pages configuration, c...]]></description>
         <author>BH3GEI</author>
         <category>Programming</category>
     </item>
