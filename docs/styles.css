@@ -25,6 +25,11 @@ body {
     text-align: center;
 }
 
+.sidebar .owner-desc {
+    text-align: center;
+    margin: 10px 0;
+}
+
 .sidebar img {
     max-width: 220px;
     width: 100%;
