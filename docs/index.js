@@ -33,6 +33,9 @@ async function init() {
     const response = await fetch(listUrl);
     const posts = await response.json();
     
+    // 按日期倒序排序文章
+    posts.sort((a, b) => new Date(b.time) - new Date(a.time));
+    
     // 如果是访问 RSS feed
     if (window.location.pathname.endsWith('/rss.xml')) {
         const rssResponse = await generateRSS();
@@ -57,7 +60,15 @@ function renderHome(posts) {
     // 重置 meta 描述
     document.querySelector('meta[name="description"]').setAttribute("content", "BH3GEI's personal blog about programming, technology and more");
     const container = document.querySelector('.thread');
-    let html = '<p>All Posts</p>';
+    
+    // 添加搜索框
+    let html = `
+        <div class="search-box" style="margin-bottom: 20px;">
+            <input type="text" id="searchInput" class="form-control" placeholder="搜索文章..." style="margin-bottom: 10px;">
+        </div>
+        <div id="searchResults"></div>
+        <p>All Posts</p>
+    `;
     
     // 分页逻辑
     const postsPerPage = 12;
@@ -65,6 +76,9 @@ function renderHome(posts) {
     const start = (currentPage - 1) * postsPerPage;
     const end = start + postsPerPage;
     const pagesPosts = posts.slice(start, end);
+    
+    // 创建文章列表容器
+    html += '<div id="postsList">';
     
     // 渲染文章列表
     pagesPosts.forEach(post => {
@@ -79,6 +93,8 @@ function renderHome(posts) {
         `;
     });
     
+    html += '</div>';
+    
     // 添加分页控制
     html += `<br><p class="text-left pageid">Current at page ${currentPage}</p><p class="text-right">`;
     if (currentPage > 1) {
@@ -90,6 +106,47 @@ function renderHome(posts) {
     html += '</p>';
     
     container.innerHTML = html;
+    
+    // 添加搜索功能
+    const searchInput = document.getElementById('searchInput');
+    const searchResults = document.getElementById('searchResults');
+    const postsList = document.getElementById('postsList');
+    
+    searchInput.addEventListener('input', function(e) {
+        const searchTerm = e.target.value.toLowerCase();
+        if (searchTerm === '') {
+            searchResults.style.display = 'none';
+            postsList.style.display = 'block';
+            return;
+        }
+        
+        const filteredPosts = posts.filter(post => 
+            post.title.toLowerCase().includes(searchTerm) ||
+            post.time.toLowerCase().includes(searchTerm)
+        );
+        
+        if (filteredPosts.length > 0) {
+            let resultsHtml = '';
+            filteredPosts.forEach(post => {
+                const filename = post.file.replace(/^posts\//i, "").replace(/\.md$/i, "");
+                resultsHtml += `
+                    <a href="/blog/${encodeURIComponent(filename)}" class="post-a">
+                        <div class="post-box">
+                            <h4>${post.title}</h4>
+                            <p>${post.time}</p>
+                        </div>
+                    </a>
+                `;
+            });
+            searchResults.innerHTML = resultsHtml;
+            searchResults.style.display = 'block';
+            postsList.style.display = 'none';
+        } else {
+            searchResults.innerHTML = '<p>没有找到匹配的文章</p>';
+            searchResults.style.display = 'block';
+            postsList.style.display = 'none';
+        }
+    });
 }
 
 async function renderPost(posts, path) {
