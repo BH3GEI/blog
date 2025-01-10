@@ -5,6 +5,9 @@ async function generateRSS() {
         const response = await fetch(listUrl);
         const posts = await response.json();
         
+        // 按日期排序
+        posts.sort((a, b) => new Date(b.time) - new Date(a.time));
+        
         // RSS 头部
         let rss = `<?xml version="1.0" encoding="UTF-8" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
@@ -19,33 +22,23 @@ async function generateRSS() {
         // 获取并添加最新的10篇文章
         const recentPosts = posts.slice(0, 10);
         for (const post of recentPosts) {
-            // 获取文章内容
-            const articleUrl = `https://raw.githubusercontent.com/${github_base}/main/${post.file}`;
-            const articleResponse = await fetch(articleUrl);
-            const content = await articleResponse.text();
-            
-            // 转换 Markdown 为 HTML
-            const converter = new showdown.Converter({
-                tables: true,
-                simplifiedAutoLink: true,
-                strikethrough: true,
-                tasklists: true
-            });
-            const htmlContent = converter.makeHtml(content);
-            
-            // 构建文章链接
-            const postPath = post.file.replace(/^posts\//i, "").replace(/\.md$/i, "");
-            const postUrl = `https://${site_domain}/${encodeURIComponent(postPath)}`;
-            
-            // 添加文章到 RSS
-            rss += `
+            try {
+                // 构建文章链接
+                const postPath = post.file.replace(/^posts\//i, "").replace(/\.md$/i, "");
+                const postUrl = `https://${site_domain}/${encodeURIComponent(postPath)}`;
+                
+                // 添加文章到 RSS
+                rss += `
     <item>
         <title>${escapeXML(post.title)}</title>
         <link>${postUrl}</link>
-        <guid>${postUrl}</guid>
+        <guid isPermaLink="true">${postUrl}</guid>
         <pubDate>${new Date(post.time).toUTCString()}</pubDate>
-        <description><![CDATA[${htmlContent}]]></description>
+        <description><![CDATA[${post.title}]]></description>
     </item>`;
+            } catch (error) {
+                console.error('Error processing post:', post, error);
+            }
         }
         
         // RSS 尾部
@@ -53,16 +46,20 @@ async function generateRSS() {
 </channel>
 </rss>`;
         
+        // 返回生成的RSS
         return new Response(rss, {
             headers: {
-                'Content-Type': 'application/xml',
+                'Content-Type': 'application/xml; charset=utf-8',
                 'Cache-Control': 'max-age=3600'
             }
         });
         
     } catch (error) {
         console.error('Error generating RSS:', error);
-        return new Response('Error generating RSS feed', { status: 500 });
+        return new Response('Error generating RSS feed', { 
+            status: 500,
+            headers: { 'Content-Type': 'text/plain; charset=utf-8' }
+        });
     }
 }
 

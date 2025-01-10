@@ -273,14 +273,14 @@ ${resptxt.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")}
 							<h4>Homepage</h4>						
 							<p><a href="https://bh3gei.github.io" target="_blank">🏠 Visit!</a></p>
 
-							<h4>Projects</h4>						
-							<p><a href="https://bh3gei.github.io/ProjectPage/" target="_blank">🗺️ Play!</a></p>
-
 							<h4>GitHub</h4>						
 							<p><a href="https://github.com/BH3GEI/" target="_blank">⌨️ Code!</a></p>
 
 							<h4>LinkedIn</h4>						
 							<p><a href="https://linkedin.com/in/yao-li2026" target="_blank">💼 Connect!</a></p>
+
+							<h4>Projects</h4>						
+							<p><a href="https://bh3gei.github.io/ProjectPage/" target="_blank">🗺️ Play!</a></p>
 
 							<h4>All Links</h4>						
 							<p><a href="https://bh3gei.github.io/AllLinks/" target="_blank">🔗 Visit!</a></p>
