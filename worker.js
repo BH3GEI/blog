@@ -3,6 +3,7 @@ const GITHUB_REPO = 'BH3GEI/blog';
 const SITE_TITLE = "BH3GEI's Blog";
 const SITE_DESCRIPTION = "BH3GEI's personal blog about programming, technology and more";
 const SITE_URL = 'https://bh3gei.github.io/blog';
+const DEFAULT_IMAGE = 'https://avatars.githubusercontent.com/u/58540850';
 
 async function handleRequest() {
 	try {
@@ -18,14 +19,23 @@ async function handleRequest() {
 		
 		// 生成 RSS
 		let rss = `<?xml version="1.0" encoding="UTF-8" ?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" xmlns:webfeeds="http://webfeeds.org/rss/1.0">
 <channel>
 	<title>${SITE_TITLE}</title>
 	<description>${SITE_DESCRIPTION}</description>
 	<link>${SITE_URL}</link>
 	<atom:link href="${SITE_URL}/rss.xml" rel="self" type="application/rss+xml" />
 	<language>zh-CN</language>
-	<lastBuildDate>${new Date().toUTCString()}</lastBuildDate>`;
+	<lastBuildDate>${new Date().toUTCString()}</lastBuildDate>
+	<webfeeds:icon>${DEFAULT_IMAGE}</webfeeds:icon>
+	<webfeeds:logo>${DEFAULT_IMAGE}</webfeeds:logo>
+	<webfeeds:accentColor>4a9eff</webfeeds:accentColor>
+	<webfeeds:cover image="${DEFAULT_IMAGE}" />
+	<image>
+		<url>${DEFAULT_IMAGE}</url>
+		<title>${SITE_TITLE}</title>
+		<link>${SITE_URL}</link>
+	</image>`;
 
 		// 获取最新的10篇文章
 		const recentPosts = posts.slice(0, 10);
@@ -38,7 +48,12 @@ async function handleRequest() {
 					return null;
 				}
 				const content = await contentResponse.text();
-				return { post, content };
+				
+				// 尝试从文章内容中提取第一张图片
+				const imageMatch = content.match(/!\[.*?\]\((.*?)\)/);
+				const imageUrl = imageMatch ? imageMatch[1] : DEFAULT_IMAGE;
+				
+				return { post, content, imageUrl };
 			} catch (error) {
 				console.error('Error fetching post:', post.title, error);
 				return null;
@@ -51,7 +66,7 @@ async function handleRequest() {
 		for (const result of results) {
 			if (!result) continue;
 			
-			const { post, content } = result;
+			const { post, content, imageUrl } = result;
 			const summary = content.substring(0, 500).replace(/[\n\r]/g, ' ') + '...';
 			const postPath = post.file.replace(/^posts\//i, "").replace(/\.md$/i, "");
 			const postUrl = `${SITE_URL}/${encodeURIComponent(postPath)}`;
@@ -62,7 +77,22 @@ async function handleRequest() {
 		<link>${postUrl}</link>
 		<guid isPermaLink="true">${postUrl}</guid>
 		<pubDate>${new Date(post.time).toUTCString()}</pubDate>
-		<description><![CDATA[${summary}]]></description>
+		<description><![CDATA[
+			<div style="text-align: center; margin-bottom: 20px;">
+				<img src="${imageUrl}" alt="${escapeXML(post.title)}" style="max-width:100%; border-radius:5px; margin:0 auto;" />
+			</div>
+			<div style="font-size: 16px; line-height: 1.6;">
+				${summary}
+			</div>
+		]]></description>
+		<media:content 
+			url="${imageUrl}"
+			medium="image"
+			type="image/jpeg"
+			width="1200"
+			height="630"
+		/>
+		<media:thumbnail url="${imageUrl}" />
 		<author>BH3GEI</author>
 		<category>Programming</category>
 	</item>`;
