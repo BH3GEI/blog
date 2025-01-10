@@ -2,12 +2,12 @@
     {
         "title": "BH3GEI's Blog",
         "time": "2020-10-01",
-        "file": "posts/20201001-1.md"
+        "file": "posts/BH3GEI's Blog.md"
     },
     {
         "title": "Postgraduate Subjects",
         "time": "2020-10-03",
-        "file": "posts/20201003-2.md"
+        "file": "posts/考研科目.md"
     },
     {
         "title": "University of Tsukuba Exam Content",
@@ -17,42 +17,42 @@
     {
         "title": "2020 JLU-CTF Notes",
         "time": "2020-10-03",
-        "file": "posts/20201003-3.md"
+        "file": "posts/ctf部分笔记.md"
     },
     {
         "title": "ESP32-based Gesture Remote Control",
         "time": "2022-05-22",
-        "file": "posts/20220522-4.md"
+        "file": "posts/基于esp32的体感手势遥控器.md"
     },
     {
         "title": "Network Drive Mounting Records",
         "time": "2022-06-22",
-        "file": "posts/20220622-5.md"
+        "file": "posts/本地挂载网盘的一些折腾记录.md"
     },
     {
         "title": "Tencent Cloud Ubuntu Initial Configuration",
         "time": "2022-06-24",
-        "file": "posts/20220624-6.md"
+        "file": "posts/腾讯云Ubuntu的一些初始配置.md"
     },
     {
         "title": "Chaoxing Answer Tool Based on BlueStacks",
         "time": "2022-06-20",
-        "file": "posts/20220620-7.md"
+        "file": "posts/基于BlueStacks和学小易的超星剪切板搜题工具.md"
     },
     {
         "title": "Setting up Minecraft Server on Ubuntu",
         "time": "2022-06-24",
-        "file": "posts/20220624-8.md"
+        "file": "posts/UbuntuServer的Minecraft服务器搭建过程.md"
     },
     {
         "title": "Install Copilot on Code Server",
         "time": "2022-06-24",
-        "file": "posts/20220624-9.md"
+        "file": "posts/codeserver安装copilot.md"
     },
     {
         "title": "FRP Configuration",
         "time": "2022-06-24",
-        "file": "posts/20220624-10.md"
+        "file": "posts/frp配置.md"
     },
     {
         "title": "CS144 Lab0 Note",
@@ -102,6 +102,6 @@
     {
         "title": "Basic Node Package Manager Commands",
         "time": "2025-01-08",
-        "file": "posts/20250108-11.md"
+        "file": "posts/npm_cmds.md"
     }
 ]
