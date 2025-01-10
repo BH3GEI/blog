@@ -49,7 +49,7 @@ async function init() {
         .replace(/\/$/, '');       // Remove trailing slash
     
     // 特殊路径处理
-    if (path === 'editor/editor.html') {
+    if (path === 'docs/editor.html' || path === 'editor.html') {
         return; // 让编辑器页面自己处理
     }
     
