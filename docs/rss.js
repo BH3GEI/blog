@@ -34,9 +34,9 @@ async function generateRSS() {
                     content = content.substring(0, 500) + '...';
                 }
                 
-                // 构建文章链接
+                // 构建文章链接 - 修复URL构建
                 const postPath = post.file.replace(/^posts\//i, "").replace(/\.md$/i, "");
-                const postUrl = `https://${site_domain}/${encodeURIComponent(postPath)}`;
+                const postUrl = `https://${site_domain}/blog/${encodeURIComponent(postPath)}`;
                 
                 // 添加文章到 RSS
                 rss += `
@@ -47,9 +47,11 @@ async function generateRSS() {
         <pubDate>${new Date(post.time).toUTCString()}</pubDate>
         <description><![CDATA[${content || post.title}]]></description>
         <author>BH3GEI</author>
+        <category>Programming</category>
     </item>`;
             } catch (error) {
                 console.error('Error processing post:', post, error);
+                continue; // 跳过出错的文章，继续处理下一篇
             }
         }
         
@@ -62,7 +64,9 @@ async function generateRSS() {
         return new Response(rss, {
             headers: {
                 'Content-Type': 'application/xml; charset=utf-8',
-                'Cache-Control': 'max-age=3600'
+                'Cache-Control': 'no-cache, no-store, must-revalidate',
+                'Pragma': 'no-cache',
+                'Expires': '0'
             }
         });
         
@@ -77,6 +81,7 @@ async function generateRSS() {
 
 // 辅助函数：转义 XML 特殊字符
 function escapeXML(str) {
+    if (!str) return '';
     return str
         .replace(/&/g, '&amp;')
         .replace(/</g, '&lt;')
