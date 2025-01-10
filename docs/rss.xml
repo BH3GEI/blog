@@ -6,16 +6,7 @@
     <link>https://bh3gei.github.io/blog</link>
     <atom:link href="https://bh3gei.github.io/blog/rss.xml" rel="self" type="application/rss+xml" />
     <language>zh-CN</language>
-    <lastBuildDate>Fri, 10 Jan 2025 04:59:03 GMT</lastBuildDate>
-    <item>
-        <title>测试测试</title>
-        <link>https://bh3gei.github.io/blog/20250110_135634</link>
-        <guid isPermaLink="true">https://bh3gei.github.io/blog/20250110_135634</guid>
-        <pubDate>Sat, 11 Jan 2025 00:00:00 GMT</pubDate>
-        <description><![CDATA[1111...]]></description>
-        <author>BH3GEI</author>
-        <category>Programming</category>
-    </item>
+    <lastBuildDate>Fri, 10 Jan 2025 05:01:35 GMT</lastBuildDate>
     <item>
         <title>2024年终总结</title>
         <link>https://bh3gei.github.io/blog/20250110_134027</link>
