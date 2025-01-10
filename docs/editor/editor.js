@@ -1,5 +1,5 @@
 const CLIENT_ID = 'Ov23liUHoNfB0EUXWMh3';
-const REDIRECT_URI = window.location.origin + '/blog/docs/editor.html';
+const REDIRECT_URI = window.location.origin + '/blog/editor/editor.html';
 const WORKER_URL = 'https://editor.stratosphericus.workers.dev/auth';
 const REPO_OWNER = 'BH3GEI';
 const REPO_NAME = 'blog';

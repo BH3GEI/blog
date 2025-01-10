@@ -48,6 +48,11 @@ async function init() {
         .replace(/^\/blog\//, '')  // Remove leading /blog/
         .replace(/\/$/, '');       // Remove trailing slash
     
+    // 特殊路径处理
+    if (path === 'editor/editor.html') {
+        return; // 让编辑器页面自己处理
+    }
+    
     if (path === '') {
         renderHome(posts);
     } else {
