@@ -1,5 +1,5 @@
 const CLIENT_ID = 'Ov23liUHoNfB0EUXWMh3';
-const CLIENT_SECRET = '0941398059e2ea7d54a1742b06ac2fc5dbe3a959';
+const CLIENT_SECRET = '';
 
 // HTML template for the editor
 const editorHTML = `
