@@ -6,7 +6,7 @@
     <link>https://bh3gei.github.io/blog</link>
     <atom:link href="https://bh3gei.github.io/blog/rss.xml" rel="self" type="application/rss+xml" />
     <language>zh-CN</language>
-    <lastBuildDate>Fri, 10 Jan 2025 05:02:46 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 10 Jan 2025 05:03:00 GMT</lastBuildDate>
     <item>
         <title>测试测试</title>
         <link>https://bh3gei.github.io/blog/20250111_135634</link>
@@ -22,15 +22,6 @@
         <guid isPermaLink="true">https://bh3gei.github.io/blog/20250110_134027</guid>
         <pubDate>Fri, 10 Jan 2025 00:00:00 GMT</pubDate>
         <description><![CDATA[# 开始吧...]]></description>
-        <author>BH3GEI</author>
-        <category>Programming</category>
-    </item>
-    <item>
-        <title>春节前的工作与2025的展望</title>
-        <link>https://bh3gei.github.io/blog/20250110_135416</link>
-        <guid isPermaLink="true">https://bh3gei.github.io/blog/20250110_135416</guid>
-        <pubDate>Fri, 10 Jan 2025 00:00:00 GMT</pubDate>
-        <description><![CDATA[# 占位...]]></description>
         <author>BH3GEI</author>
         <category>Programming</category>
     </item>
@@ -94,6 +85,15 @@
         <guid isPermaLink="true">https://bh3gei.github.io/blog/MakeVmMyself</guid>
         <pubDate>Mon, 13 Nov 2023 00:00:00 GMT</pubDate>
         <description><![CDATA[## Building a Virtual Machine from Scratch  ### Step 1: Theory Learning and Verification #### First Try  ```cpp #include <stdio.h>  // Virtual machine has only one register typedef struct {     int reg; } VM;  void vm_init(VM* vm) {     vm->reg = 0; }  // Single instruction: addition void vm_add(VM* vm, int value) {     vm->reg += value; }  // Print status void vm_print(VM* vm) {     printf("Register: %d\n", vm->reg); }  int main() {     // Create and initialize     VM vm;     vm_init(&vm);     ...]]></description>
+        <author>BH3GEI</author>
+        <category>Programming</category>
+    </item>
+    <item>
+        <title>A Maze Game</title>
+        <link>https://bh3gei.github.io/blog/MazeGame</link>
+        <guid isPermaLink="true">https://bh3gei.github.io/blog/MazeGame</guid>
+        <pubDate>Mon, 13 Nov 2023 00:00:00 GMT</pubDate>
+        <description><![CDATA[# A Simple Yet Potentially Complex Maze Game  This is a toy project that I started on impulse.  It's still in early development, and I'm not sure what it will eventually become.  GitHub link: https://github.com/BH3GEI/MazeGame  ### Step 1: Writing a Simple Test  ```python class Room(object):      def __init__(self, name, description, end_game=False):         self.name = name         self.description = description         self.end_game = end_game         self.paths = {}      def go(self, directio...]]></description>
         <author>BH3GEI</author>
         <category>Programming</category>
     </item>
