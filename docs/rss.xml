@@ -6,13 +6,13 @@
     <link>https://bh3gei.github.io/blog</link>
     <atom:link href="https://bh3gei.github.io/blog/rss.xml" rel="self" type="application/rss+xml" />
     <language>zh-CN</language>
-    <lastBuildDate>Sun, 16 Feb 2025 16:48:43 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 16 Feb 2025 16:53:55 GMT</lastBuildDate>
     <item>
         <title>题</title>
         <link>https://bh3gei.github.io/blog/20250217_014831</link>
         <guid isPermaLink="true">https://bh3gei.github.io/blog/20250217_014831</guid>
         <pubDate>Sun, 16 Feb 2025 00:00:00 GMT</pubDate>
-        <description><![CDATA[```cpp #include <vector> #include <unordered_map>  class Solution { public:     /**      * @brief 找到数组中两个数的索引，使它们的和等于目标值。      *       * @param nums 输入的整数数组      * @param target 目标和      * @return vector<int> 返回两个数的索引      */     std::vector<int> twoSum(std::vector<int>& nums, int target) {         // 使用哈希表存储已经遍历过的数字及其索引         std::unordered_map<int, int> num_map;          // 遍历数组         for (int i = 0; i < nums.size(); ++i) {             int complement = target - nums[i]; // 计算当前数字的补数       ...]]></description>
+        <description><![CDATA[### 1. Two Sum ```cpp #include <vector>  class Solution { public:     /**      * @brief 找到数组中两个数的索引，使它们的和等于目标值（暴力解法）。      *       * @param nums 输入的整数数组      * @param target 目标和      * @return vector<int> 返回两个数的索引      */     std::vector<int> twoSum(std::vector<int>& nums, int target) {         // 双重循环遍历所有可能的数字对         for (int i = 0; i < nums.size(); ++i) {             for (int j = i + 1; j < nums.size(); ++j) { // 注意：j 从 i+1 开始，避免重复使用同一个元素                 if (nums[i] + nums[j] == target) {   ...]]></description>
         <author>BH3GEI</author>
         <category>Programming</category>
     </item>
