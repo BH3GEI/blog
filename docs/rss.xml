@@ -6,7 +6,16 @@
     <link>https://bh3gei.github.io/blog</link>
     <atom:link href="https://bh3gei.github.io/blog/rss.xml" rel="self" type="application/rss+xml" />
     <language>zh-CN</language>
-    <lastBuildDate>Fri, 10 Jan 2025 22:09:28 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 16 Feb 2025 16:48:43 GMT</lastBuildDate>
+    <item>
+        <title>题</title>
+        <link>https://bh3gei.github.io/blog/20250217_014831</link>
+        <guid isPermaLink="true">https://bh3gei.github.io/blog/20250217_014831</guid>
+        <pubDate>Sun, 16 Feb 2025 00:00:00 GMT</pubDate>
+        <description><![CDATA[```cpp #include <vector> #include <unordered_map>  class Solution { public:     /**      * @brief 找到数组中两个数的索引，使它们的和等于目标值。      *       * @param nums 输入的整数数组      * @param target 目标和      * @return vector<int> 返回两个数的索引      */     std::vector<int> twoSum(std::vector<int>& nums, int target) {         // 使用哈希表存储已经遍历过的数字及其索引         std::unordered_map<int, int> num_map;          // 遍历数组         for (int i = 0; i < nums.size(); ++i) {             int complement = target - nums[i]; // 计算当前数字的补数       ...]]></description>
+        <author>BH3GEI</author>
+        <category>Programming</category>
+    </item>
     <item>
         <title>My 2024 Summary</title>
         <link>https://bh3gei.github.io/blog/20250110_134027</link>
@@ -85,15 +94,6 @@
         <guid isPermaLink="true">https://bh3gei.github.io/blog/MazeGame</guid>
         <pubDate>Mon, 13 Nov 2023 00:00:00 GMT</pubDate>
         <description><![CDATA[# A Simple Yet Potentially Complex Maze Game  This is a toy project that I started on impulse.  It's still in early development, and I'm not sure what it will eventually become.  GitHub link: https://github.com/BH3GEI/MazeGame  ### Step 1: Writing a Simple Test  ```python class Room(object):      def __init__(self, name, description, end_game=False):         self.name = name         self.description = description         self.end_game = end_game         self.paths = {}      def go(self, directio...]]></description>
-        <author>BH3GEI</author>
-        <category>Programming</category>
-    </item>
-    <item>
-        <title>Vue Deployment on Cloudflare and Github Pages</title>
-        <link>https://bh3gei.github.io/blog/VueDeployment</link>
-        <guid isPermaLink="true">https://bh3gei.github.io/blog/VueDeployment</guid>
-        <pubDate>Sun, 05 Nov 2023 00:00:00 GMT</pubDate>
-        <description><![CDATA[### Vue Deployment on GitHub Pages and Cloudflare Workers  ### Deployment on GitHub Pages  1. **First, compile locally after development and upload to git, then configure the repository**      ```bash     $ npm run build     ```  2. **Comment out the dist file in .gitignore**      ```bash     $ git add .     $ git commit -m "test 2"     $ git push origin master     $ git subtree push --prefix dist origin gh-pages     ```  3. **Open the repository settings in GitHub, select Pages configuration, c...]]></description>
         <author>BH3GEI</author>
         <category>Programming</category>
     </item>

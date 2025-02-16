@@ -2,9 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
         <loc>https://bh3gei.github.io/blog/</loc>
-        <lastmod>2025-01-10</lastmod>
+        <lastmod>2025-02-16</lastmod>
         <changefreq>daily</changefreq>
         <priority>1.0</priority>
+    </url>
+    <url>
+        <loc>https://bh3gei.github.io/blog/20250217_014831</loc>
+        <lastmod>2025-02-16</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
     </url>
     <url>
         <loc>https://bh3gei.github.io/blog/20250110_134027</loc>
