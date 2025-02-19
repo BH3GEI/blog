@@ -6,16 +6,7 @@
     <link>https://bh3gei.github.io/blog</link>
     <atom:link href="https://bh3gei.github.io/blog/rss.xml" rel="self" type="application/rss+xml" />
     <language>zh-CN</language>
-    <lastBuildDate>Wed, 19 Feb 2025 09:57:24 GMT</lastBuildDate>
-    <item>
-        <title>test111</title>
-        <link>https://bh3gei.github.io/blog/20250219_185712</link>
-        <guid isPermaLink="true">https://bh3gei.github.io/blog/20250219_185712</guid>
-        <pubDate>Wed, 19 Feb 2025 00:00:00 GMT</pubDate>
-        <description><![CDATA[111...]]></description>
-        <author>BH3GEI</author>
-        <category>Programming</category>
-    </item>
+    <lastBuildDate>Wed, 19 Feb 2025 09:59:43 GMT</lastBuildDate>
     <item>
         <title>LeetCode Daily Question</title>
         <link>https://bh3gei.github.io/blog/20250217_233258</link>
@@ -94,6 +85,15 @@
         <guid isPermaLink="true">https://bh3gei.github.io/blog/wasm</guid>
         <pubDate>Wed, 10 Jul 2024 00:00:00 GMT</pubDate>
         <description><![CDATA[# WebAssembly Learning Notes  This is an archive of my learning journey that started a month ago. Due to the intensive learning pace, I needed to organize my thoughts.  [Chinese version follows below]  ## A Brief Introduction  WebAssembly is designed to complement JavaScript for compute-intensive tasks rather than replace it. It's a new open standard binary format that can run anywhere once compiled.  ![image](https://github.com/BH3GEI/WebAssemblyLearning/assets/58540850/c70b0e61-97d1-4a16-94ba-...]]></description>
+        <author>BH3GEI</author>
+        <category>Programming</category>
+    </item>
+    <item>
+        <title>University of Tsukuba Exam Content</title>
+        <link>https://bh3gei.github.io/blog/tsukubatest</link>
+        <guid isPermaLink="true">https://bh3gei.github.io/blog/tsukubatest</guid>
+        <pubDate>Tue, 05 Dec 2023 00:00:00 GMT</pubDate>
+        <description><![CDATA[## University of Tsukuba Entrance Examination Content  ### Analysis Function and its limit, Limit of a sequence, Infinite series, Analysis in one variable, Analysis in several variables (partial derivative, multiple integral).  ### Linear Algebra Matrix, Determinant, Vector space, Linear mapping, Kernel and image, Inner product spaces, Eigenvalues, Eigenvectors, Matrix diagonalization.  ### Discrete Mathematics and Logic Set, Propositional Logic, Function (surjection, injection, image, composite...]]></description>
         <author>BH3GEI</author>
         <category>Programming</category>
     </item>
