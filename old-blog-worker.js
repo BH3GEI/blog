@@ -16,15 +16,25 @@ var owner_logo = "https://avatars.githubusercontent.com/u/58540850?v=4"	// 博�
 var owner_desc = "          BH3GEIのブログへようこそ！";					// 博主简介
 
 // 设置站点资源文件地址
-var css_bootstrap	 = "https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css";		// Boostrap css 文件地址
-var css_hljs_github   = "https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/styles/github.min.css";  	// Highlight js css 地址
-var js_jquery		 = "https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js";		// JQuery 地址
-var js_bootstrap	= "https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js";		// Bootstrap 地址
-var js_instantclick   = "https://cdn.jsdelivr.net/npm/instantclick@3.1.0/instantclick.min.js";		// InstantClick 地址
-var js_showdown	 = "https://cdn.jsdelivr.net/npm/showdown@2.1.0/dist/showdown.min.js";			// Showdown 地址
-var js_showdown_table = "https://cdn.jsdelivr.net/npm/showdown-table@1.0.1/dist/showdown-table.min.js";		// Showdown table 地址
-var js_highlight	= "https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/highlight.min.js";		// Highlight 地址
-var js_highlight_pack = "https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/highlight.min.js";		// Highlight pack 地址
+var css_bootstrap     = "https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css";        // Bootstrap css 文件地址
+var css_hljs_github   = "https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.8.0/build/styles/github.css";   // Highlight.js css 地址
+var js_jquery         = "https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.min.js";        // jQuery 地址
+var js_bootstrap      = "https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js";        // Bootstrap 地址
+var js_instantclick   = "https://cdn.jsdelivr.net/npm/instantclick@3.1.0/instantclick.min.js";        // InstantClick 地址
+var js_showdown       = "https://cdn.jsdelivr.net/npm/showdown@2.1.0/dist/showdown.min.js";           // Showdown 地址
+var js_showdown_table = "https://cdn.jsdelivr.net/npm/showdown-table@1.0.1/dist/showdown-table.min.js";        // Showdown table 地址
+var js_highlight      = "https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.8.0/build/highlight.min.js";        // Highlight 地址
+var js_highlight_pack = "https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.8.0/build/highlight.js";        // Highlight pack 地址
+// // 设置站点资源文件地址
+// var css_bootstrap	 = "https://cdn.zerodream.net/css/bootstrap.min.css";		// Boostrap css 文件地址
+// var css_hljs_github   = "https://cdn.zerodream.net/css/highlight.js/github.css";  	// Highlight js css 地址
+// var js_jquery		 = "https://cdn.zerodream.net/js/jquery.min.js";		// JQuery 地址
+// var js_bootstrap	= "https://cdn.zerodream.net/js/bootstrap.min.js";		// Bootstrap 地址
+// var js_instantclick   = "https://cdn.zerodream.net/js/instantclick.min.js";		// InstantClick 地址
+// var js_showdown	 = "https://cdn.zerodream.net/js/showdown.min.js";			// Showdown 地址
+// var js_showdown_table = "https://cdn.zerodream.net/js/showdown-table.min.js";		// Showdown table 地址
+// var js_highlight	= "https://cdn.zerodream.net/js/highlight.min.js";		// Highlight 地址
+// var js_highlight_pack = "https://cdn.zerodream.net/js/highlight.pack.js";		// Highlight pack 地址
 // // 设置站点资源文件地址
 // var css_bootstrap	 = "./bootstrap.min.css";		// Boostrap css 文件地址
 // var css_hljs_github   = "./github.css";  	// Highlight js css 地址
@@ -64,263 +74,33 @@ var header = `<!DOCTYPE HTML>
 	<head>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="application-name" content="${default_title}">
-		<meta name="description" content="{description}">
-		<meta name="keywords" content="BH3GEI, blog, tech, programming, software development">
-		<meta name="author" content="${owner_name}">
-		<meta property="og:title" content="{title}">
-		<meta property="og:description" content="{description}">
-		<meta property="og:type" content="website">
-		<meta property="og:url" content="https://${site_domain}">
-		<meta property="og:image" content="${owner_logo}">
-		<meta name="twitter:card" content="summary">
-		<meta name="twitter:title" content="{title}">
-		<meta name="twitter:description" content="{description}">
-		<meta name="twitter:image" content="${owner_logo}">
-		<link rel="canonical" href="https://${site_domain}">
+		<meta http-equiv="X-UA-Compatible" content="IE=11">
+		<meta name="application-name" content="SakuraFrp Blog">
+		<meta name="msapplication-TileColor" content="#F1F1F1">
 		<link rel="shortcut icon" href="${site_favicon}" />
+		<meta name="description" content="{description}">
 		<link rel="stylesheet" href="${css_bootstrap}" crossorigin="anonymous">
 		<link rel="stylesheet" href="${css_hljs_github}">
 		<title>{title}</title>
-		<style type="text/css">
-		:root {
-			--bg-primary: #0a0b0e;
-			--bg-secondary: rgba(30, 41, 59, 0.4);
-			--text-primary: #e2e8f0;
-			--text-secondary: #94a3b8;
-			--accent-color: #60a5fa;
-			--border-color: rgba(148, 163, 184, 0.1);
-		}
-		
-		body {
-			font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-			line-height: 1.6;
-			color: var(--text-primary);
-			background-color: var(--bg-primary);
-			margin: 0;
-			padding: 0;
-			min-height: 100vh;
-			position: relative;
-			overflow-x: hidden;
-		}
-
-		#starry-background {
-			position: fixed;
-			top: 0;
-			left: 0;
-			width: 100%;
-			height: 100%;
-			z-index: -1;
-			pointer-events: none;
-		}
-
-		.container {
-			position: relative;
-			z-index: 1;
-			background: rgba(10, 11, 14, 0.7);
-			backdrop-filter: blur(10px);
-			-webkit-backdrop-filter: blur(10px);
-			border-radius: 16px;
-			margin: 20px auto;
-			padding: 30px;
-			max-width: 1200px;
-			box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-		}
-
-		.thread {
-			background: var(--bg-secondary);
-			border-radius: 12px;
-			padding: 30px;
-			margin: 20px 0;
-			border: 1px solid var(--border-color);
-			overflow-x: auto;
-		}
-
-		.posts-container {
-			display: grid;
-			grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-			gap: 20px;
-			margin: 20px 0;
-		}
-
-		.post-card {
-			background: var(--bg-secondary);
-			border: 1px solid var(--border-color);
-			border-radius: 12px;
-			padding: 20px;
-			transition: all 0.3s ease;
-			height: 100%;
-		}
-
-		.post-link {
-			text-decoration: none;
-			color: inherit;
-			display: block;
-			height: 100%;
-		}
-
-		.post-card:hover {
-			transform: translateY(-5px);
-			box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-			border-color: var(--accent-color);
-		}
-
-		.post-date {
-			color: var(--text-secondary);
-			font-size: 0.9em;
-			margin-bottom: 10px;
-		}
-
-		.post-title {
-			color: var(--text-primary);
-			margin: 0;
-			font-size: 1.2em;
-			font-weight: 600;
-		}
-
-		pre {
-			background: rgba(0, 0, 0, 0.2) !important;
-			border-radius: 8px;
-			padding: 15px;
-			overflow-x: auto;
-			max-width: 100%;
-		}
-
-		code {
-			color: var(--accent-color);
-			background: rgba(0, 0, 0, 0.2);
-			padding: 2px 6px;
-			border-radius: 4px;
-			font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
-		}
-
-		img {
-			max-width: 100%;
-			height: auto;
-			border-radius: 8px;
-			margin: 20px 0;
-		}
-
-		table {
-			width: 100%;
-			border-collapse: collapse;
-			margin: 20px 0;
-			overflow-x: auto;
-			display: block;
-		}
-
-		th, td {
-			padding: 12px;
-			border: 1px solid var(--border-color);
-			background: rgba(0, 0, 0, 0.2);
-		}
-
-		th {
-			background: rgba(0, 0, 0, 0.3);
-			font-weight: 600;
-		}
-
-		.sidebar {
-			background: var(--bg-secondary);
-			border-radius: 12px;
-			padding: 20px;
-			border: 1px solid var(--border-color);
-			position: sticky;
-			top: 20px;
-		}
-
-		.sidebar img {
-			border-radius: 50%;
-			margin: 0 auto 20px;
-			display: block;
-			max-width: 150px;
-			width: 100%;
-		}
-
-		@media (max-width: 768px) {
-			.container {
-				margin: 10px;
-				padding: 15px;
-			}
-			
-			.posts-container {
-				grid-template-columns: 1fr;
-			}
-			
-			.thread {
-				padding: 15px;
-			}
-			
-			.sidebar {
-				position: static;
-				margin-top: 20px;
-			}
-		}
-		</style>
-		<!-- Google Analytics -->
-		<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+		<style type="text/css">.pageid{margin-bottom:-26px}code{color:#484848;background-color:#f5f5f5;border-radius:0px;border:1px solid #dadada;}pre>code{color:unset;background-color:unset;border-radius:unset;border:0px;}.post-a {color: #000;text-decoration: none ! important;}.post-box {padding: 12px 20px 12px 20px;border-bottom: 1px solid rgba(0,0,0,0.07);cursor: pointer;border-left: 0px solid rgba(66, 66, 66, 0);transition-duration: 0.3s;}.post-box:hover {transition-duration: 0.3s;border-left: 5px solid rgba(66, 66, 66, 0.15);}.thread h2 {border-bottom: 1px solid rgb(238,238,238);padding-bottom: 10px;}.editor-preview pre, .editor-preview-side pre{padding: 0.5em;}.hljs{background: unset ! important;padding: 0px;}.CodeMirror{height: calc(100% - 320px);min-height: 360px;}.msgid{font-family:Consolas;}.tooltip {word-break: break-all;}h2 a{font-weight: 400;}body{/*background:url(https://i.natfrp.org/cbf5973ce9da283bc9abe307cdea7f30.jpg);*/font-family:'-apple-system','BlinkMacSystemFont','Segoe UI','Helvetica','Arial','sans-serif','Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol' ! important;font-weight:400;background-attachment:fixed;background-size:cover;background-repeat:no-repeat;background-position:center;}h2 a{color: #000;} h2 a:hover{color: #000; text-decoration: none;}.full-width{width: 100%;}.thread img{vertical-align:text-bottom ! important;max-width:100% ! important;margin-top:8px;margin-bottom:8px;}.thread table{display:block;width:100%;overflow:auto;margin-bottom:8px;}.thread table tr{background-color:#fff;border-top:1px solid #c6cbd1;}.thread table tr:nth-child(2n){background-color:#f7f7f7;}.thread table th,.thread table td{padding:10px 12px 0px 12px;border:1px solid #dfe2e5;font-size:14px;}.thread table th {padding-bottom: 10px;background: #f7f7f7;}.thread pre{margin-bottom:16px;}pre{border:none ! important;}blockquote{font-size:15px ! important;}@media screen and(max-width:768px){.copyright{text-align:center;}}</style>
 		<script>
-			window.dataLayer = window.dataLayer || [];
-			function gtag(){dataLayer.push(arguments);}
-			gtag('js', new Date());
-			gtag('config', 'G-XXXXXXXXXX');
-		</script>
-		<script type="application/ld+json">
-		{
-			"@context": "https://schema.org",
-			"@type": "Blog",
-			"headline": "${default_title}",
-			"description": "${site_subtitle}",
-			"url": "https://${site_domain}",
-			"author": {
-				"@type": "Person",
-				"name": "${owner_name}",
-				"image": "${owner_logo}",
-				"description": "${owner_desc}"
-			},
-			"publisher": {
-				"@type": "Organization",
-				"name": "${default_title}",
-				"logo": {
-					"@type": "ImageObject",
-					"url": "${site_favicon}"
-				}
-			}
-		}
+			var _hmt = _hmt || [];
+			(function() {
+			var hm = document.createElement("script");
+			hm.src = "https://hm.baidu.com/hm.js?b1f3cc985ea87c4141634fa0572a1612";
+			var s = document.getElementsByTagName("script")[0]; 
+			s.parentNode.insertBefore(hm, s);
+			})();
 		</script>
 	</head>
 	<body>
-		<canvas id="starry-background"></canvas>
 		<div class="container">
 			<div class="row">
-				<div class="col-sm-12">
-					<nav aria-label="breadcrumb" class="mt-3">
-						<ol class="breadcrumb">
-							<li class="breadcrumb-item"><a href="/">Home</a></li>
-							{breadcrumb}
-						</ol>
-					</nav>
-					<div class="d-flex justify-content-between align-items-center">
+			<div class="col-sm-12" style="display: flex; justify-content: space-between; align-items: center;">
 			<h2><a href="/" class="post-a">{intitle}</a></h2>
-						<div class="d-flex gap-2">
-							<a href="/rss.xml" title="RSS Feed" class="text-muted">
-								<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
-									<path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm1.5 2.5c5.523 0 10 4.477 10 10a1 1 0 1 1-2 0 8 8 0 0 0-8-8 1 1 0 0 1 0-2zm0 4a6 6 0 0 1 6 6 1 1 0 1 1-2 0 4 4 0 0 0-4-4 1 1 0 0 1 0-2zm.5 7a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"/>
-								</svg>
-							</a>
-							<a href="https://github.com/${github_base}" title="GitHub Repository" class="text-muted">
-								<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
-									<path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
-								</svg>
-							</a>
-						</div>
-					</div>
 		</div>
-				<div class="col-sm-12">
-					<p class="lead text-muted">${site_subtitle}</p>
+		<p>${site_subtitle}</p>
 		<hr>
-				</div>
 				<div class="col-sm-9">
 					<div class="thread">
 						`;
@@ -351,7 +131,7 @@ async function bloghandle(request) {
 	try {
 		cookieText.split(';').forEach(l => {
 			var parts = l.split('=');
-			cookie[parts[0].trim()] = decodeURIComponent((parts[1] || '').trim());
+			cookie[parts[0].trim()] = unescape((parts[1] || '').trim());
 		});
 	} catch(e) {
 		// 无可奉告
@@ -359,8 +139,6 @@ async function bloghandle(request) {
 	var $_GET = getRequestParams(request.url);
 	var urls = new URL(request.url);
 	var data = header;
-	
-	// 修复中文路径处理
 	if(urls.pathname == "/") {
 		var url = "https://raw.githubusercontent.com/" + github_base + "/main/list.json";
 		const init = {
@@ -373,11 +151,13 @@ async function bloghandle(request) {
 			var exp = new Date(); 
 			exp.setTime(exp.getTime() + Days*24*60*60*1000); 
 			modifyHeader = {
-				"Set-Cookie" : "list="+ encodeURIComponent(resptxt) + ";expires=" + exp.toGMTString()
+				"Set-Cookie" : "list="+ escape (resptxt) + ";expires=" + exp.toGMTString()
 			};
 		}
 		var json = JSON.parse(resptxt);
-		data += `<div class="posts-container">`;
+		// console.log(json);
+		data += `<p>All Posts</p>
+						`;
 		var before_page = 0;
 		var current_page = 1;
 		var next_page = 2;
@@ -390,56 +170,52 @@ async function bloghandle(request) {
 			current_page = parseInt($_GET['p']);
 			before_page = parseInt($_GET['p']) - 1;
 		}
+		console.log(pageval);
 		var update_i = 0;
 		for(var i = pagenow;i >= pageval;i--) {
 		try {
-				var tmpfilename = json[i].file
-					.replace(/"/g, "")
-					.replace(/posts\//ig, "")
-					.replace(/\.md/ig, "");
+			var tmpfilename = encodeURIComponent(json[i].file
+			.replace(/"/g, "").replace(/posts\//ig, "").replace(/\.md/ig, ""));
 			var tmptime = json[i].time;
 			var tmptitle = json[i].title;
-				data += `
-					<a href="/${encodeURIComponent(tmpfilename)}" class="post-link">
-						<div class="post-card">
-							<div class="post-date">${new Date(tmptime).toLocaleDateString()}</div>
-							<h3 class="post-title">${tmptitle}</h3>
+			data += `<a href="/${tmpfilename}" class="post-a">
+							<div class="post-box">
+								<h4>${tmptitle}</h4>
+								<p></p>
 							</div>
-					</a>`;
+						</a>
+						`;
 			update_i++;
 		} catch(e) {
-				console.error(e);
+			// 收声
 		}
 		}
+		console.log(update_i);
 		if(update_i == 0) {
-			data += `<div class="no-posts">No posts yet</div>`;
+		data += `<p><blockquote>No content yet</blockquote></p>
+				`
 		}
-		data += `</div>
-		<div class="pagination">`;
+		data += `<br>
+						<p class="text-left pageid"> Current at page ${current_page} </p>
+						<p class="text-right">
+							`;
 		if(current_page > 1) {
-			data += `<a href="/?p=${before_page}" class="page-btn prev">Previous</a>`;
+		data += `<a href="/?p=${before_page}"><button class="btn btn-default">Previous Page</button></a>&nbsp; &nbsp;`;
 		}
 		if(update_i >= 12) {
-			data += `<a href="/?p=${next_page}" class="page-btn next">Next</a>`;
+		data += `<a href="/?p=${next_page}"><button class="btn btn-default">Next Page</button></a>`;
 		}
-		data += `</div>`;
+		data += `
+						</p>
+					</div>
+				`;
 		title = default_title;
+		//intitle = default_intitle;
 		intitle = default_title;
 		title2 = default_title;
+		// title2 = "";
 	} else {
-		// 正确处理中文路径
-		var uname = urls.pathname.substring(1);  // 移除开头的斜杠
-		try {
-			// 尝试对可能已经被编码的URL再次解码
-			uname = decodeURIComponent(uname);
-		} catch(e) {
-			// 如果解码失败，保持原样
-			console.error("URL decode failed:", e);
-		}
-		
-		// 构建完整的文件路径
-		var mdfile = "posts/" + uname + ".md";
-		
+		var uname = unescape("posts" + urls.pathname + ".md");
 		try {
 		clist = cookie['list'];
 		} catch(e) {
@@ -450,85 +226,100 @@ async function bloghandle(request) {
 		const response = await fetch(url, init);
 		clist = await response.text();
 		}
-		
 		if(clist != undefined) {
 			try {
 				var json = JSON.parse(clist);
 				var found = false;
 				for(var i in json) {
-					// 正确处理文件名比较
-					var tmpfilename = json[i].file
-						.replace(/"/g, "")
-						.replace(/^posts\//i, "")
-						.replace(/\.md$/i, "");
-					
-					// 规范化比较字符串
-					if(tmpfilename === uname) {
-						title = json[i].title;
+					tmpfilename = json[i].file.replace(/"/g, "");
+					tmptime = json[i].time;
+					tmptitle = json[i].title;
+					if(tmpfilename == uname) {
+						title = tmptitle;
+						// intitle = tmptitle;
 						intitle = title;
-						ctime = json[i].time;
+						title = default_title;
+						intitle = default_title;
+						title2 = default_title;
+						ctime = tmptime;
 						found = true;
-						break;
 					}
 				}
-				
 				if(!found) {
-					// 如果在主列表中找不到，尝试在备用列表中查找
-					var url = "https://raw.githubusercontent.com/" + github_base + "/main/list.json";
+					var url = "https://raw.githubusercontent.com/" + github_base + "//list.json";
 					const init = {
 						method: "GET"
 					};
 					const response = await fetch(url, init);
-					
 					clist = await response.text();
-					json = JSON.parse(clist);
-					
+					var json = JSON.parse(clist);
 					for(var i in json) {
-						var tmpfilename = json[i].file
-							.replace(/"/g, "")
-							.replace(/^posts\//i, "")
-							.replace(/\.md$/i, "");
-						
-						if(tmpfilename === uname) {
-							title = json[i].title;
-							intitle = title;
-							ctime = json[i].time;
-							found = true;
-							break;
+						tmpfilename = json[i].file.replace(/"/g, "");
+						tmptime = json[i].time;
+						tmptitle = json[i].title;
+						if(tmpfilename == uname) {
+							title = tmptitle;
+							intitle = tmptitle;
+							intitle = default_title;
+							title = default_title;
+							title2 = default_title;
+							ctime = tmptime;
 						}
 					}
-					
-					if(found) {
 					var Days = 30; 
 					var exp = new Date(); 
 					exp.setTime(exp.getTime() + Days*24*60*60*1000); 
 					modifyHeader = {
-							"Set-Cookie" : "list="+ encodeURIComponent(clist) + ";expires=" + exp.toGMTString()
+						"Set-Cookie" : "list="+ escape (clist) + ";expires=" + exp.toGMTString()
 					};
-					}
 				}
 			} catch(e) {
-				console.error("JSON parse error:", e);
+				// 收声
 			}
+		} else {
+			var url = "https://raw.githubusercontent.com/" + github_base + "/main/list.json";
+			const init = {
+				method: "GET"
+			};
+			const response = await fetch(url, init);
+			var clist = await response.text();
+			var json = JSON.parse(clist);
+			for(var i in json) {
+				tmpfilename = json[i].file.replace(/"/g, "");
+				tmptime = json[i].time;
+				tmptitle = json[i].title;
+				if(tmpfilename == uname) {
+					title = tmptitle;
+					intitle = tmptitle;
+					intitle = default_title;
+					title = default_title;
+					title2 = default_title;
+					ctime = tmptime;
+				}
+			}
+			var Days = 30; 
+			var exp = new Date(); 
+			exp.setTime(exp.getTime() + Days*24*60*60*1000); 
+			modifyHeader = {
+				"Set-Cookie" : "list="+ escape (clist) + ";expires=" + exp.toGMTString()
+			};
 		}
-		
-		// 获取文章内容
 		data += `</div>
-				<p class="text-center${isunknown}"><small></small></p>
+						<p class="text-center{isunknown}"><small></small></p>
 						<textarea id="textdata" style="display: none;">`;
-		
-		var url = "https://raw.githubusercontent.com/" + github_base + "/main/posts/" + encodeURIComponent(uname) + ".md";
+		var url = "https://raw.githubusercontent.com/" + github_base + "/main/posts" + urls.pathname + ".md";
 		const init = {
 			method: "GET"
 		};
 		const response = await fetch(url, init);
-		
 		if(response.status == 200) {
 			var resptxt = await response.text();
 			data += resptxt.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
 			description = resptxt.substring(0, 128).replace(/"/ig, "").replace(/\n/g, " ");
 			data += `</textarea>
-					<hr>`;
+					<hr>
+					
+				`;
 		} else {
 			data += `### 404 Not Found
 <div class="error-message">
@@ -546,15 +337,19 @@ async function bloghandle(request) {
         <a href="/" class="btn">Back to ${default_intitle} Homepage</a>
     </div>
 </div>
-					</textarea>`;
+					</textarea>
+				`;
 			title = '404 - Page Not Found';
-			title2 = '';
-			intitle = '';
-			description = '';
+			// title2 = ` - ${default_title}`;
+			title2 = ``;
+			intitle = ``;
+			title = default_title;
+			intitle = ``;
+			description = ``;
 			isunknown = " hidden";
 		}
+		title2 = `${default_title}`;
 	}
-	title2 = `${default_title}`;
 	data += `</div>
 				<div class="col-sm-3">
 					<div style="padding: 16px;text-align: center;">
@@ -574,15 +369,16 @@ async function bloghandle(request) {
 							<p><a href="https://linkedin.com/in/yao-li2026" target="_blank">💼 Connect!</a></p>
 							<h4>All Links</h4>						
 							<p><a href="https://bh3gei.github.io/AllLinks/" target="_blank">🔗 Visit!</a></p>
-				
+							<h4>RSS Feed</h4>						
+							<p><a href="https://rss.stratosphericus.workers.dev/" target="_blank">📰 Subscribe!</a></p>
 						</div>
 					</div>
 				</div>
 			</div>
 			<div class="row">
 				<div class="col-sm-12">
-				<p>Powered by CloudFlare Workers | <a href="https://github.com/BH3GEI/blog" target="_blank">Github</a></p>
-				<p>&copy; 2023 ${default_intitle}</p>
+				<p>Powered by CloudFlare Workers | <a href="https://github.com/BH3GEI/blog" target="_blank"> Github </a>| <a href="https://bh3gei.github.io/blog/" target="_blank"> New Version </a></p>
+				<p>&copy; 2020 ${default_intitle}</p>
 				<br><br>
 				</div>
 			</div>
@@ -628,59 +424,6 @@ async function bloghandle(request) {
 				} catch(e) {}
 			});
 		</script>
-		<script>
-		const canvas = document.getElementById('starry-background');
-		const ctx = canvas.getContext('2d');
-
-		// Set canvas size
-		function resizeCanvas() {
-			canvas.width = window.innerWidth;
-			canvas.height = window.innerHeight;
-		}
-		resizeCanvas();
-		window.addEventListener('resize', resizeCanvas);
-
-		// Star properties
-		const stars = [];
-		const numStars = 200;
-		const starSpeed = 0.2;
-
-		// Create stars
-		for(let i = 0; i < numStars; i++) {
-			stars.push({
-				x: Math.random() * canvas.width,
-				y: Math.random() * canvas.height,
-				size: Math.random() * 2,
-				speed: Math.random() * starSpeed + 0.1
-			});
-		}
-
-		// Animation function
-		function animate() {
-			ctx.fillStyle = 'rgba(10, 11, 14, 0.1)';
-			ctx.fillRect(0, 0, canvas.width, canvas.height);
-			
-			stars.forEach(star => {
-				ctx.fillStyle = 'rgba(226, 232, 240, 0.8)';
-				ctx.beginPath();
-				ctx.arc(star.x, star.y, star.size, 0, Math.PI * 2);
-				ctx.fill();
-				
-				// Move star
-				star.y += star.speed;
-				
-				// Reset star position if it goes off screen
-				if(star.y > canvas.height) {
-					star.y = 0;
-					star.x = Math.random() * canvas.width;
-				}
-			});
-			
-			requestAnimationFrame(animate);
-		}
-
-		animate();
-		</script>
 	</body>
 </html>
 	`;
@@ -690,97 +433,6 @@ async function bloghandle(request) {
 		.replace(/\{isunknown\}/ig, isunknown)
 		.replace(/\{description\}/ig, description);
 	return data;
-}
-
-async function generateSitemap() {
-	const url = "https://raw.githubusercontent.com/" + github_base + "/main/list.json";
-	const init = {
-		method: "GET"
-	};
-	const response = await fetch(url, init);
-	const json = JSON.parse(await response.text());
-
-	let xml = `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-	<url>
-		<loc>https://${site_domain}/</loc>
-		<changefreq>daily</changefreq>
-		<priority>1.0</priority>
-	</url>`;
-
-	for(const post of json) {
-		const filename = post.file
-			.replace(/"/g, "")
-			.replace(/posts\//ig, "")
-			.replace(/\.md/ig, "");
-		
-		xml += `
-	<url>
-		<loc>https://${site_domain}/${encodeURIComponent(filename)}</loc>
-		<lastmod>${post.time.split(' ')[0]}</lastmod>
-		<changefreq>weekly</changefreq>
-		<priority>0.8</priority>
-	</url>`;
-	}
-
-	xml += `
-</urlset>`;
-
-	return xml;
-}
-
-async function generateRSS() {
-	const url = "https://raw.githubusercontent.com/" + github_base + "/main/list.json";
-	const init = {
-		method: "GET"
-	};
-	const response = await fetch(url, init);
-	const json = JSON.parse(await response.text());
-
-	let rss = `<?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-	<channel>
-		<title>${default_title}</title>
-		<link>https://${site_domain}/</link>
-		<description>${site_subtitle}</description>
-		<language>zh-CN</language>
-		<atom:link href="https://${site_domain}/rss.xml" rel="self" type="application/rss+xml" />
-		<image>
-			<url>${site_favicon}</url>
-			<title>${default_title}</title>
-			<link>https://${site_domain}/</link>
-		</image>`;
-
-	for(const post of json) {
-		const filename = post.file
-			.replace(/"/g, "")
-			.replace(/posts\//ig, "")
-			.replace(/\.md/ig, "");
-		
-		const postUrl = `https://${site_domain}/${encodeURIComponent(filename)}`;
-		const postResponse = await fetch(`https://raw.githubusercontent.com/${github_base}/main/posts/${filename}.md`);
-		let content = await postResponse.text();
-		content = content.replace(/&/g, '&amp;')
-					.replace(/</g, '&lt;')
-					.replace(/>/g, '&gt;')
-					.replace(/"/g, '&quot;')
-					.replace(/'/g, '&apos;');
-
-		rss += `
-		<item>
-			<title>${post.title}</title>
-			<link>${postUrl}</link>
-			<guid>${postUrl}</guid>
-			<pubDate>${new Date(post.time).toUTCString()}</pubDate>
-			<description><![CDATA[${content}]]></description>
-		</item>`;
-	}
-
-	rss += `
-	</channel>
-</rss>`;
-
-	return rss;
 }
 
 /**
@@ -793,34 +445,6 @@ async function handleRequest(request) {
 		rhttps.headers.set("Location", request.url.replace("http://", "https://"));
 		return rhttps;
 	}
-
-	const url = new URL(request.url);
-	
-	// Handle sitemap.xml request
-	if(url.pathname === '/sitemap.xml') {
-		const sitemap = await generateSitemap();
-		const response = new Response(sitemap, {status: 200});
-		response.headers.set('Content-Type', 'application/xml');
-		return response;
-	}
-
-	// Handle RSS feed request
-	if(url.pathname === '/rss.xml') {
-		const rss = await generateRSS();
-		const response = new Response(rss, {status: 200});
-		response.headers.set('Content-Type', 'application/xml');
-		return response;
-	}
-
-	// Handle robots.txt request
-	if(url.pathname === '/robots.txt') {
-		const response = await fetch('https://raw.githubusercontent.com/' + github_base + '/main/worker/robots.txt');
-		const robotsTxt = await response.text();
-		return new Response(robotsTxt, {
-			headers: { 'Content-Type': 'text/plain' }
-		});
-	}
-
 	cookieText = request.headers.get("cookie");
 	var resp = new Response(await bloghandle(request), {status: 200});
 	resp.headers.set("Content-Type", "text/html");
