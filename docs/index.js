@@ -11,7 +11,7 @@ const site_favicon = "https://en.gravatar.com/userimage/194126597/84ff189b66b338
 // 博主信息
 const owner_name = "BH3GEI";
 const owner_logo = "https://avatars.githubusercontent.com/u/58540850?v=4";
-const owner_desc = "知之者不如好之者、好之者不如楽之者";
+const owner_desc = "人生は直線ではない";
 
 // CDN 资源
 const resources = {
