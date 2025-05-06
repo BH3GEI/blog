@@ -6,7 +6,7 @@
     <link>https://bh3gei.github.io/blog</link>
     <atom:link href="https://bh3gei.github.io/blog/rss.xml" rel="self" type="application/rss+xml" />
     <language>zh-CN</language>
-    <lastBuildDate>Tue, 06 May 2025 14:15:00 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 06 May 2025 14:17:08 GMT</lastBuildDate>
     <item>
         <title>Running MoFA Framework and Its Data Streams</title>
         <link>https://bh3gei.github.io/blog/20250506_231007</link>
@@ -22,6 +22,15 @@
         <guid isPermaLink="true">https://bh3gei.github.io/blog/20250506_231444</guid>
         <pubDate>Tue, 06 May 2025 00:00:00 GMT</pubDate>
         <description><![CDATA[### 最后决定直接嵌入一个webssh  https://github.com/huashengdun/webssh  在刷推的时候发现的很有意思的项目，看看能不能整合进去...]]></description>
+        <author>BH3GEI</author>
+        <category>Programming</category>
+    </item>
+    <item>
+        <title>Some interesting GitHub projects</title>
+        <link>https://bh3gei.github.io/blog/20250506_231651</link>
+        <guid isPermaLink="true">https://bh3gei.github.io/blog/20250506_231651</guid>
+        <pubDate>Tue, 06 May 2025 00:00:00 GMT</pubDate>
+        <description><![CDATA[https://github.com/localsend/protocol?tab=readme-ov-file  https://github.com/freeman-jiang/beatsync...]]></description>
         <author>BH3GEI</author>
         <category>Programming</category>
     </item>
@@ -85,15 +94,6 @@
         <guid isPermaLink="true">https://bh3gei.github.io/blog/podman</guid>
         <pubDate>Wed, 25 Dec 2024 00:00:00 GMT</pubDate>
         <description><![CDATA[Setting Up Ubuntu Container with GUI Support  On host: ``` # Create a directory for persistent storage mkdir -p $HOME/ubuntu-data  # Run Ubuntu container with GUI support podman run -it --privileged \   --name my-ubuntu \   -e DISPLAY=$DISPLAY \   -v /tmp/.X11-unix:/tmp/.X11-unix \   -v $HOME/.Xauthority:/root/.Xauthority \   -v $HOME/ubuntu-data:/root \   ubuntu:latest  # Allow container to access X server xhost +local: ```  ``` echo "alias ubuntu='podman exec -it my-ubuntu bash'" >> ~/.bashrc ...]]></description>
-        <author>BH3GEI</author>
-        <category>Programming</category>
-    </item>
-    <item>
-        <title>Set Up V2ray server</title>
-        <link>https://bh3gei.github.io/blog/setupV2</link>
-        <guid isPermaLink="true">https://bh3gei.github.io/blog/setupV2</guid>
-        <pubDate>Fri, 06 Dec 2024 00:00:00 GMT</pubDate>
-        <description><![CDATA[# Set Up V2Ray Server with VMess Protocol  ## Introduction In this tutorial, I'll guide you through setting up a V2Ray server using the VMess protocol with HTTP camouflage. This setup is particularly useful for users who need a reliable and secure proxy solution.  ## Prerequisites - A Linux server (Ubuntu/Debian recommended) - Root access to the server - Basic command line knowledge  ## Step 1: Installing V2Ray First, we need to install V2Ray on your server. The installation process has been upd...]]></description>
         <author>BH3GEI</author>
         <category>Programming</category>
     </item>
