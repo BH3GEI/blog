@@ -133,5 +133,10 @@
         "title": "Running MoFA Framework and Its Data Streams",
         "time": "2025-05-06",
         "file": "posts/20250506_231007.md"
+    },
+    {
+        "title": "MoFA Stage (MoFA Management UI) Development Record",
+        "time": "2025-05-06",
+        "file": "posts/20250506_231444.md"
     }
 ]
