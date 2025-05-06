@@ -6,13 +6,22 @@
     <link>https://bh3gei.github.io/blog</link>
     <atom:link href="https://bh3gei.github.io/blog/rss.xml" rel="self" type="application/rss+xml" />
     <language>zh-CN</language>
-    <lastBuildDate>Tue, 06 May 2025 14:11:40 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 06 May 2025 14:15:00 GMT</lastBuildDate>
     <item>
         <title>Running MoFA Framework and Its Data Streams</title>
         <link>https://bh3gei.github.io/blog/20250506_231007</link>
         <guid isPermaLink="true">https://bh3gei.github.io/blog/20250506_231007</guid>
         <pubDate>Tue, 06 May 2025 00:00:00 GMT</pubDate>
         <description><![CDATA[### 从2025 MoFA Search AI Hackathon开始  ...]]></description>
+        <author>BH3GEI</author>
+        <category>Programming</category>
+    </item>
+    <item>
+        <title>MoFA Stage (MoFA Management UI) Development Record</title>
+        <link>https://bh3gei.github.io/blog/20250506_231444</link>
+        <guid isPermaLink="true">https://bh3gei.github.io/blog/20250506_231444</guid>
+        <pubDate>Tue, 06 May 2025 00:00:00 GMT</pubDate>
+        <description><![CDATA[### 最后决定直接嵌入一个webssh  https://github.com/huashengdun/webssh  在刷推的时候发现的很有意思的项目，看看能不能整合进去...]]></description>
         <author>BH3GEI</author>
         <category>Programming</category>
     </item>
@@ -85,15 +94,6 @@
         <guid isPermaLink="true">https://bh3gei.github.io/blog/setupV2</guid>
         <pubDate>Fri, 06 Dec 2024 00:00:00 GMT</pubDate>
         <description><![CDATA[# Set Up V2Ray Server with VMess Protocol  ## Introduction In this tutorial, I'll guide you through setting up a V2Ray server using the VMess protocol with HTTP camouflage. This setup is particularly useful for users who need a reliable and secure proxy solution.  ## Prerequisites - A Linux server (Ubuntu/Debian recommended) - Root access to the server - Basic command line knowledge  ## Step 1: Installing V2Ray First, we need to install V2Ray on your server. The installation process has been upd...]]></description>
-        <author>BH3GEI</author>
-        <category>Programming</category>
-    </item>
-    <item>
-        <title>Kaggle Learning Notes</title>
-        <link>https://bh3gei.github.io/blog/KaggleLearning</link>
-        <guid isPermaLink="true">https://bh3gei.github.io/blog/KaggleLearning</guid>
-        <pubDate>Wed, 10 Jul 2024 00:00:00 GMT</pubDate>
-        <description><![CDATA[# KaggleLearning Personal Notes  ## LMSYS - Chatbot Arena Human Preference Predictions Predict which response users are more likely to prefer in head-to-head matchups between chatbots powered by large language models (LLMs), ensuring that LLM-generated responses align with user preferences.  ### https://www.kaggle.com/code/awsaf49/lmsys-kerasnlp-starter  A very basic and detailed explanation, which I followed step by step.  1. **Environment Setup** (Installing necessary libraries, selecting JAX ...]]></description>
         <author>BH3GEI</author>
         <category>Programming</category>
     </item>
